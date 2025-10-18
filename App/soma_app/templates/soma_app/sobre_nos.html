@@ -13,7 +13,16 @@
             margin: 40px auto;
             text-align: center;
             padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        body.dark-mode .about-content {
+            background-color: var(--color-header-footer); /* Fundo no modo escuro */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
         .team-photo {
             width: 100%;
             height: 250px;
@@ -26,6 +35,12 @@
             color: var(--color-text-primary);
             font-weight: bold;
         }
+
+        body.dark-mode .team-photo {
+            color: var(--color-text-primary-dark);
+            background-color: var(--color-gradient-low-dark); /* #3C3C58 */
+        }
+
         .members-container {
             display: flex;
             justify-content: space-around;
@@ -46,6 +61,11 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        body.dark-mode .member-card img {
+            background-color: var(--color-accent-secondary-dark); /* #4DD0E1 */
+        }
+
         .member-card a {
             color: var(--color-accent-primary); /* Link para o Github */
             text-decoration: none;
@@ -54,7 +74,14 @@
     </style>
 </head>
 <body>
-    <header class="header">SOMA</header>
+    <header class="header">
+        SOMA
+       
+        <div id="theme-toggle" class="toggle-button">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+        </div>
+    </header>
     <nav class="sidebar">
         <div class="sidebar-item">
             <a href="{% url 'dashboard_index' %}" title="Dashboard"><i class="fas fa-chart-line"></i></a>
@@ -95,5 +122,6 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>
