@@ -38,4 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
             moonIcon.style.display = 'none';
         }
     });
+
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', () => {
+            // Alterna a classe 'sidebar-active' no corpo do documento
+            body.classList.toggle('sidebar-active');
+        });
+        
+        // Opcional: Fechar o sidebar ao clicar em um item de menu (em telas pequenas)
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    body.classList.remove('sidebar-active');
+                }
+            });
+        });
+    }
 });
