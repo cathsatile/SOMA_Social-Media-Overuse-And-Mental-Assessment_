@@ -107,6 +107,21 @@ body.dark-mode .header {
 }
 
 
+/* --- Overlay para Sidebar em Telas Pequenas --- */
+.overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor escura semi-transparente */
+    z-index: 800; /* Deve estar acima do main-content (900 é o sidebar) */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
 /* --- 2. Navegação Lateral (Sidebar) --- */
 
 .sidebar {
@@ -140,6 +155,27 @@ body.dark-mode .header {
 
 .sidebar-item a:hover, .sidebar-item.active a {
     color: var(--color-accent-primary);
+}
+
+/* --- Esconde o texto por padrão (Desktop) --- */
+.sidebar-text {
+    display: none; 
+}
+
+/* Ajusta o alinhamento do ícone/texto no link */
+.sidebar-item a {
+    display: flex; /* Permite alinhar ícone e texto */
+    align-items: center;
+    justify-content: center; /* Centraliza o ícone (desktop) */
+    color: var(--color-gradient-low);
+    text-decoration: none;
+    font-size: 1.5em; /* Tamanho do ícone */
+    padding: 0 10px; 
+}
+
+/* Garante que não haja margem extra no ícone em desktop */
+.sidebar-item a i {
+    margin-right: 0;
 }
 
 
@@ -274,8 +310,15 @@ body.dark-mode .project-image {
     
     /* 1. LAYOUT PRINCIPAL: Remove margens e permite rolagem vertical */
     body {
+        /* Aumenta o tamanho base da fonte para melhor legibilidade em celulares */
+        font-size: 1.1em; 
         display: block; 
     }
+    
+    /* Aumenta as letras dos títulos e subtítulos */
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.3em; }
 
     .main-content {
         margin-left: 0; 
@@ -283,21 +326,47 @@ body.dark-mode .project-image {
         padding-top: 60px;
     }
 
-    /* 2. SIDEBAR: Oculta por padrão em telas pequenas */
+    /* 2. SIDEBAR: Configurações de menu deslizante */
     .sidebar {
         position: fixed;
-        left: -80px; 
-        width: 200px; 
+        left: -300px; /* Esconde a sidebar completamente fora da tela */
+        width: 300px; 
         height: 100%;
         top: 0;
         padding-top: 60px;
         transition: left 0.3s ease;
+        align-items: flex-start;
+    }
+
+    /* Ajusta o link para alinhamento à esquerda */
+    .sidebar-item a {
+        justify-content: flex-start; /* Alinha ícone e texto à esquerda */
+        padding: 15px 20px; /* Aumenta o padding para mais espaço de toque */
+    }
+
+    /* Adiciona espaço entre o ícone e o texto */
+    .sidebar-item a i {
+        font-size: 1.5em; /* Mantém o tamanho do ícone */
+        margin-right: 15px; /* Espaço entre o ícone e o texto */
+    }
+
+    /* 🚨 NOVO: Exibe o texto da sidebar no mobile */
+    .sidebar-text {
+        display: inline-block; 
+        font-size: 1em; /* Tamanho do texto */
+        font-weight: bold;
+        line-height: 1.5em; /* Alinha o texto verticalmente com o ícone */
     }
     
     /* 3. SIDEBAR ATIVA (Classe adicionada via JS) */
     body.sidebar-active .sidebar {
-        left: 0; 
+        left: 0; /* Desliza o sidebar para dentro da tela */
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    body.sidebar-active .overlay {
+        display: block;
+        opacity: 1; /* Transição de opacidade para um efeito suave */
     }
     
     /* 4. TOGGLES: Exibe o toggle da sidebar */
@@ -305,11 +374,11 @@ body.dark-mode .project-image {
         display: block; 
     }
 
-    /* 5. GRÁFICOS E CARDS: Organiza os elementos em coluna */
+    /* 5. CARDS DE CONTEÚDO (Gráficos e Membros): Organiza os elementos na vertical */
     .chart-container, .members-container {
-        flex-direction: column; 
+        flex-direction: column; /* Coloca os cards um em cima do outro */
         padding: 10px;
-        gap: 10px;
+        gap: 15px; /* Espaçamento ligeiramente maior */
     }
     
     .chart-area {
@@ -317,8 +386,16 @@ body.dark-mode .project-image {
         min-height: 200px;
     }
     
-    /* 6. ALINHAMENTO DO HEADER EM TELAS PEQUENAS */
+    /* 6. CARTÃO GERAL (Sobre Nós/SOMA): Ajuste a margem para evitar que o conteúdo fique grudado na borda */
+    .about-content {
+        max-width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+    
+    /* 7. ALINHAMENTO DO HEADER EM TELAS PEQUENAS */
     .header {
-        padding: 15px 50px;
+        /* Garante que o padding acomode ambos os toggles */
+        padding: 15px 0px; 
     }
 }

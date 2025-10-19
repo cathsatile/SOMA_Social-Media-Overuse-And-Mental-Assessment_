@@ -40,12 +40,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const sidebarToggle = document.getElementById('sidebar-toggle');
+    const overlay = document.querySelector('.overlay'); 
     
     if (sidebarToggle) {
         sidebarToggle.addEventListener('click', () => {
             // Alterna a classe 'sidebar-active' no corpo do documento
             body.classList.toggle('sidebar-active');
         });
+
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                // Remove a classe 'sidebar-active' do corpo
+                body.classList.remove('sidebar-active'); 
+            });
+        }
         
         // Opcional: Fechar o sidebar ao clicar em um item de menu (em telas pequenas)
         const sidebarItems = document.querySelectorAll('.sidebar-item');
