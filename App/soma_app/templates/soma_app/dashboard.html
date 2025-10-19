@@ -29,6 +29,11 @@
 
     <header class="header">
         SOMA
+
+        <div id="theme-toggle" class="toggle-button">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+        </div>
     </header>
 
     <nav class="sidebar">
@@ -59,16 +64,8 @@
             </div>
         </div>
 
-        <div class="filter-controls-container">
-            <div class="filter-button-group">
-                <button class="filter-button active" data-filter="geral">Visão Geral</button>
-                
-                <button class="filter-button" data-filter="jovens">Jovens (18-25)</button>
-                
-                <button class="filter-button" data-filter="adultos">Adultos (26+)</button>
-            </div>
-        </div>
-
     </div> 
+
+    <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>

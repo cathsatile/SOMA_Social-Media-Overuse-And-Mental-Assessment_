@@ -1,55 +1,135 @@
-/* Paleta de Cores */
+/* Paleta de Cores (Adicionar Modo Escuro) */
 :root {
-    --color-background: #F0F4F8; /* Fundo - Cinza claro e suave */
-    --color-text-primary: #1C2E4A; /* Texto Principal - Azul-marinho */
-    --color-accent-primary: #4A90E2; /* Destaque 1 - Azul vibrante */
-    --color-accent-secondary: #9B59B6; /* Destaque 2 - Roxo */
-    --color-gradient-low: #D4E1F4; /* Gradações - Azul mais claro */
-    --color-header-footer: #1C2E4A; /* Usando a cor do Texto Principal para o Header */
+    /* Cores do Tema Claro (Padrão) */
+    --color-background-light: #F0F4F8; 
+    --color-text-primary-light: #1C2E4A;
+    --color-accent-primary-light: #4A90E2; 
+    --color-accent-secondary-light: #9B59B6;
+    --color-gradient-low-light: #D4E1F4;
+
+    /* Cores do Tema Escuro (Novas) */
+    --color-background-dark: #1A1A2E; /* Azul-escuro Profundo (Para Header/Cards) */
+    --color-text-primary-dark: #EFEFEF;
+    --color-accent-primary-dark: #FF4B91;
+    --color-accent-secondary-dark: #4DD0E1; 
+    --color-gradient-low-dark: #3C3C58;
+    
+    /* Configuração padrão (usa o tema claro por padrão) */
+    --color-background: var(--color-background-light);
+    --color-text-primary: var(--color-text-primary-light);
+    --color-accent-primary: var(--color-accent-primary-light);
+    --color-accent-secondary: var(--color-accent-secondary-light);
+    --color-gradient-low: var(--color-gradient-low-light);
+    --color-header-footer: var(--color-text-primary-light); /* Azul Marinho do Tema Claro */
 }
 
-/* Estilos Globais */
+/* 🚨 Estilos Aplicados quando a classe 'dark-mode' está ativa (sobrescreve as variáveis acima) 🚨 */
+body.dark-mode {
+    /* 1. O Fundo do Body agora é o Roxo Mais Escuro (#3C3C58) */
+    --color-background: var(--color-gradient-low-dark); 
+    
+    --color-text-primary: var(--color-text-primary-dark);
+    --color-accent-primary: var(--color-accent-primary-dark);
+    --color-accent-secondary: var(--color-accent-secondary-dark);
+    --color-gradient-low: var(--color-gradient-low-dark);
+    
+    /* 2. O Fundo do Header/Sidebar agora é o Azul-Escuro Profundo (#1A1A2E) */
+    --color-header-footer: var(--color-background-dark); 
+}
+
+
+
+/* --- Estilos Globais e Transições --- */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: var(--color-background);
     color: var(--color-text-primary);
-    display: flex; /* Flexbox para layout principal */
+    display: flex; 
     min-height: 100vh;
+    /* Adiciona transição para cores de fundo e texto */
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 h1, h2, h3 {
     color: var(--color-text-primary);
 }
 
-/* 1. Cabeçalho (Header) */
+
+/* --- 1. Cabeçalho (Header) e Toggle --- */
+
 .header {
-    background-color: var(--color-text-primary); /* Azul-marinho */
-    color: var(--color-background); /* Texto claro no fundo escuro */
-    padding: 15px 20px;
+    /* Usa a cor azul-marinho no tema claro, e a cor escura no tema escuro */
+    background-color: var(--color-header-footer); 
+    color: var(--color-background); /* Inverte a cor do texto para o header (branco no escuro) */
+    
+    padding: 15px 0px;
     font-size: 1.5em;
     font-weight: bold;
-    text-align: center;
-    position: fixed; /* Fixo no topo */
+    text-align: center; /* Centraliza o texto "SOMA" */
+    
+    /* Posição fixa */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    
+    /* Transição suave */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* 2. Navegação Lateral (Sidebar) */
+/* 🚨 Garante que o texto 'SOMA' no header mude para a cor clara no modo escuro */
+body.dark-mode .header {
+    background-color: var(--color-header-footer); /* #1A1A2E */
+    color: var(--color-text-primary); 
+}
+/* --- Estilos do Toggle de Tema Escuro --- */
+
+body.dark-mode .sidebar {
+    background-color: var(--color-header-footer); /* #1A1A2E */
+}
+
+#theme-toggle {
+    /* Posição ABSOLUTA para alinhar no canto superior direito */
+    position: absolute;
+    right: 20px; 
+    top: 50%; /* Inicia no meio da altura do header */
+    transform: translateY(-50%); /* Ajusta para centralização vertical perfeita */
+    
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--color-background); /* No tema claro, a cor do ícone é o Fundo Claro */
+    transition: color 0.3s;
+}
+
+/* Quando o tema escuro estiver ativo, a cor do ícone deve ser o texto claro */
+body.dark-mode #theme-toggle {
+    color: var(--color-text-primary-dark);
+}
+
+/* Efeito ao passar o mouse */
+#theme-toggle:hover {
+    color: var(--color-accent-primary);
+}
+
+
+/* --- 2. Navegação Lateral (Sidebar) --- */
+
 .sidebar {
     position: fixed;
-    top: 60px; /* Abaixo do cabeçalho */
+    top: 60px;
     left: 0;
-    width: 80px; /* Largura estreita para apenas ícones */
-    height: calc(100vh - 60px); /* Altura restante da tela */
-    background-color: var(--color-text-primary); /* Azul-marinho */
+    width: 80px;
+    height: calc(100vh - 60px); 
+    background-color: var(--color-header-footer); /* Usa a cor de base do header */
     padding-top: 20px;
     z-index: 900;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: background-color 0.3s;
 }
 
 .sidebar-item {
@@ -60,89 +140,53 @@ h1, h2, h3 {
 }
 
 .sidebar-item a {
-    color: var(--color-gradient-low); /* Azul mais claro para os ícones */
+    color: var(--color-gradient-low);
     text-decoration: none;
     font-size: 1.5em;
     display: block;
 }
 
 .sidebar-item a:hover {
-    color: var(--color-accent-primary); /* Azul vibrante no hover */
+    color: var(--color-accent-primary);
 }
 
 .sidebar-item.active a {
-    color: var(--color-accent-primary); /* Indicador de página ativa */
+    color: var(--color-accent-primary);
 }
 
-/* 3. Área de Conteúdo Principal */
+
+/* --- 3. Área de Conteúdo Principal e Gráficos --- */
+
 .main-content {
-    margin-left: 80px; /* Espaço para a navegação lateral */
-    padding-top: 60px; /* Espaço para o cabeçalho */
-    width: calc(100% - 80px); /* Largura restante */
+    margin-left: 80px; 
+    padding-top: 60px; 
+    width: calc(100% - 80px); 
     box-sizing: border-box;
 }
 
-
-/* --- Estilos para o Grupo de Filtros no Rodapé do Dashboard --- */
-
-/* 1. Container para centralizar o grupo de botões */
-.filter-controls-container {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    padding: 30px 0 50px 0; /* Padding inferior para dar espaço */
-}
-
-/* 2. Estilo base do grupo de botões (para garantir que sejam adjacentes) */
-.filter-button-group {
-    display: flex;
-    border: 2px solid var(--color-accent-primary); /* Borda primária (azul vibrante) */
-    border-radius: 10px; /* Arredondamento externo do grupo */
-    overflow: hidden; /* Importante para que a borda externa controle o formato */
-}
-
-/* 3. Estilo de cada botão individual */
-.filter-button {
-    background-color: transparent;
-    color: var(--color-text-primary); /* Texto azul-marinho */
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    border: none; /* Remove a borda padrão do botão */
-    outline: none;
-    transition: all 0.2s ease;
+.chart-area {
+    /* Fundo branco no tema claro */
+    background-color: var(--color-background-light); 
+    border-top: 4px solid var(--color-accent-primary);
     
-    /* Adiciona uma linha divisória entre os botões */
-    border-left: 1px solid var(--color-accent-primary);
+    /* Layout */
+    flex: 1; 
+    min-height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
     
-    /* Remove a linha divisória do primeiro botão */
-    &:first-child {
-        border-left: none;
-    }
+    transition: background-color 0.3s, border-top-color 0.3s;
 }
 
-/* 4. Estilo do botão ATIVO (selecionado) */
-.filter-button.active {
-    background-color: var(--color-accent-primary); /* Cor de destaque (azul vibrante) */
-    color: white; /* Texto branco no botão ativo */
-    pointer-events: none; /* Desativa o clique no botão já ativo */
+/* 🚨 Estilos do CHART AREA no Modo Escuro */
+body.dark-mode .chart-area {
+    /* 🚨 CORREÇÃO: Cards devem usar a cor do Header/Sidebar (#1A1A2E) */
+    background-color: var(--color-header-footer); 
+    border-top-color: var(--color-accent-primary); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* 5. Efeito visual ao passar o mouse (hover) */
-.filter-button:not(.active):hover {
-    background-color: var(--color-gradient-low); /* Cor de gradação para hover */
-}
-
-/* --- Arredondamento nas Extremidades --- */
-
-/* Borda esquerda arredondada para o PRIMEIRO botão */
-.filter-button:first-child {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-/* Borda direita arredondada para o ÚLTIMO botão */
-.filter-button:last-child {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
+/* 🚨 Remove o erro de sintaxe do SASS que estava em seu arquivo original! */
+/* (Se você não estiver usando SASS/LESS, a sintaxe &:first-child é inválida) */

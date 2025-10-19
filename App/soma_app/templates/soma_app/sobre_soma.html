@@ -13,7 +13,17 @@
             margin: 40px auto;
             text-align: center;
             padding: 20px;
+
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
+        body.dark-mode .about-content {
+            background-color: var(--color-header-footer); /* #1A1A2E */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
         .project-image {
             width: 100%;
             height: 300px;
@@ -27,10 +37,20 @@
             font-weight: bold;
             font-size: 1.2em;
         }
+        
+        body.dark-mode .project-image {
+            background-color: var(--color-accent-primary-dark); /* #FF4B91 */
+            color: var(--color-background-dark); /* Contraste */
+        }
     </style>
 </head>
 <body>
-    <header class="header">SOMA</header>
+    <header class="header">
+        SOMA
+        <div id="theme-toggle" class="toggle-button">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+        </div></header>
     <nav class="sidebar">
         <div class="sidebar-item">
             <a href="{% url 'dashboard_index' %}" title="Dashboard"><i class="fas fa-chart-line"></i></a>
@@ -56,5 +76,6 @@
             </p>
         </div>
     </div>
+    <script src="{% static 'js/theme.js' %}"></script>
 </body>
 </html>
