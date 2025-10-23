@@ -65,5 +65,6 @@ Durante a primeira fase do projeto (2º semestre de 2025), os principais objetiv
 ### 🏁 Organização de Tarefas
 
 Kanban board: [Miro](https://miro.com/app/board/uXjVJDHiUzg=/?share_link_id=2396273763)
+              [Trello](https://trello.com/invite/b/68f963492169ae7f6e726f5c/ATTIb8052173f16a7265fc590eaa46481110F11EC2FC/meu-quadro-do-trello) 
 
 Planejamento SCRUM: [Docs](https://docs.google.com/document/d/1EFuL-Sd-7k4OEkpVFjaB8wHsn4nXasq6Ky2bcxldKRc/edit?usp=sharing)
