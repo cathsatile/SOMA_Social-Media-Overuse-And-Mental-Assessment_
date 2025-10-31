@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}SOMA Dashboard{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+
+</head>
+<body>
+    
+    <header class="header">
+        <div id="sidebar-toggle" class="toggle-button">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        SOMA
+        
+        <div id="theme-toggle" class="toggle-button">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon" style="display: none;"></i>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <div class="sidebar-item {% block dashboard_active %}{% endblock %}">
+            <a href="{% url 'dashboard_index' %}" title="Dashboard">
+                <i class="fas fa-chart-line"></i>
+                <span class="sidebar-text">Dashboard</span> </a>
+        </div>
+        <div class="sidebar-item {% block sobre_nos_active %}{% endblock %}">
+            <a href="{% url 'sobre_nos' %}" title="Sobre Nós">
+                <i class="fas fa-users"></i>
+                <span class="sidebar-text">Sobre Nós</span> </a>
+        </div>
+        <div class="sidebar-item {% block sobre_soma_active %}{% endblock %}">
+            <a href="{% url 'sobre_soma' %}" title="Sobre o SOMA">
+                <i class="fas fa-brain"></i>
+                <span class="sidebar-text">Sobre o SOMA</span> </a>
+        </div>
+    </nav>
+
+    <div class="overlay"></div> <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <script src="{% static 'js/theme.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>
