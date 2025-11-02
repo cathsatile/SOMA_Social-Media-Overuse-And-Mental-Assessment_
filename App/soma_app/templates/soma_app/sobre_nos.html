@@ -1,5 +1,7 @@
 {% extends "soma_app/base.html" %}
 
+{% load static %}
+
 {% block title %}SOMA - Sobre Nós{% endblock %}
 
 {% block sobre_nos_active %}active{% endblock %}
@@ -9,25 +11,39 @@
         <h1>Sobre Nós</h1>
         
         <div class="team-photo">
-            [Espaço para Foto da Equipe]
+            <img src="{% static 'img/members/teste.jpg' %}" alt="Foto da Equipe SOMA">
         </div>
 
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <p class="team-intro-text">
+            Nós somos a equipe por trás do projeto <strong>SOMA (Social Media Overuse and Mental Assessment)</strong>, uma iniciativa desenvolvida no <strong>Centro Universitário de Brasília (CEUB)</strong> como parte da disciplina de Projeto Integrador I do curso de Ciência da Computação[cite: 253, 270]. Nosso propósito é transformar a crescente preocupação com o vício digital em dados claros e acionáveis, mapeando o uso de tecnologias e seus impactos na saúde mental de jovens e adultos[cite: 270]. Somos movidos pela missão de aplicar ferramentas de análise de dados e visualização interativa para oferecer uma base de conhecimento que conscientize e apoie a busca por um bem-estar digital mais equilibrado[cite: 273, 275]. Conheça o trio que está liderando essa jornada de dados e bem-estar.
         </p>
 
         <div class="members-container">
             <div class="member-card">
-                <img src="" alt="Foto de Catharina Satile">
-                <p><strong>Catharina Satile</strong><br><a href="https://github.com/cathsatile" target="_blank">GitHub</a></p>
+                <img src="{% static 'img/members/catharina_satile.png' %}" alt="Foto de Catharina Satile">
+                <p>
+                    <strong class="member-name">Catharina Satile</strong><br>
+                    <a href="https://github.com/cathsatile" target="_blank" class="github-link">GitHub</a><br>
+                    <span class="member-role">Líder / Analista, PO</span>
+                </p>
             </div>
+
             <div class="member-card">
-                <img src="" alt="Foto de Miguel Ribeiro">
-                <p><strong>Miguel Ribeiro</strong><br><a href="https://github.com/Miguelmrg" target="_blank">GitHub</a></p>
+                <img src="{% static 'img/members/miguel_ribeiro.png' %}" alt="Foto de Miguel Ribeiro">
+                <p>
+                    <strong class="member-name">Miguel Ribeiro</strong><br>
+                    <a href="https://github.com/Miguelmrg" target="_blank" class="github-link">GitHub</a><br>
+                    <span class="member-role">Doc. / Dev. Back-End</span>
+                </p>
             </div>
+
             <div class="member-card">
-                <img src="" alt="Foto de Davi Klein">
-                <p><strong>Davi Klein</strong><br><a href="https://github.com/Davi-KLevy" target="_blank">GitHub</a></p>
+                <img src="{% static 'img/members/davi_klein.jpeg' %}" alt="Foto de Davi Klein">
+                <p>
+                    <strong class="member-name">Davi Klein</strong><br>
+                    <a href="https://github.com/Davi-KLevy" target="_blank" class="github-link">GitHub</a><br>
+                    <span class="member-role">Dev. Front-End / SM</span>
+                </p>
             </div>
         </div>
     </div>
