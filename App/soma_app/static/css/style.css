@@ -224,16 +224,24 @@ body.dark-mode .chart-area {
     margin: 40px auto;
     text-align: center;
     padding: 20px;
-    background-color: white; /* Tema Claro */
+    background-color: white; 
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s, border 0.3s; /* Adicionado 'border' à transição */
+}
+
+/* 1. Borda Azul para o MODO CLARO (Padrão) */
+.about-content:not(.dark-mode) {
+    /* O seletor ':not(.dark-mode)' garante que esta regra só se aplique no modo claro */
+    border: 3px solid var(--color-accent-primary-light); /* Borda sólida com a cor azul de destaque */
 }
 
 /* Dark Mode: Fundo do about-content (Cartão) */
 body.dark-mode .about-content {
     background-color: var(--color-header-footer); /* #1A1A2E */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    /* Remove ou define a borda para zero no Modo Escuro */
+    border: none; /* Garante que a borda não apareça no modo escuro */
 }
 
 /* --- Estilos Específicos da Página Sobre Nós --- */
