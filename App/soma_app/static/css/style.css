@@ -76,6 +76,15 @@ body.dark-mode .header {
     color: var(--color-text-primary); 
 }
 
+.header-logo {
+    height: 40px; /* Altura fixa para a logo no header */
+    width: auto; /* Mantém a proporção da imagem */
+    vertical-align: middle; /* Alinha a logo verticalmente no cabeçalho */
+    max-width: 150px; /* Garante que a logo não seja grande demais em telas menores */
+    /* transition: filter 0.3s ease; -- Remova ou ajuste esta transição, pois vamos usar 'fill' ou 'stroke' */
+    transition: fill 0.3s ease, stroke 0.3s ease; /* Transição para cores de SVG */
+}
+
 /* --- Estilos do Toggle de Tema Escuro --- */
 #theme-toggle {
     position: absolute;
@@ -90,7 +99,7 @@ body.dark-mode .header {
 
 /* --- Estilos do Toggle de Sidebar (Escondido por padrão) --- */
 #sidebar-toggle {
-    display: none; /* Escondido em telas grandes */
+    display: block; /* Escondido em telas grandes */
     position: absolute;
     left: 20px;
     top: 50%;
@@ -128,7 +137,7 @@ body.dark-mode .header {
     position: fixed;
     top: 60px;
     left: 0;
-    width: 80px;
+    width: 60px; 
     height: calc(100vh - 60px); 
     background-color: var(--color-header-footer); 
     padding-top: 20px;
@@ -136,7 +145,34 @@ body.dark-mode .header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, width 0.3s, left 0.3s; 
+}
+
+/* 🚨 NOVO: Estilo da Sidebar Ativa/Expandida (Desktop e Global) 🚨 */
+/* Quando 'sidebar-active' está presente, ela se expande */
+body.sidebar-active .sidebar {
+    width: 200px; /* Largura Expandida */
+}
+
+/* Quando 'sidebar-active' está presente, o conteúdo se move */
+body.sidebar-active .main-content {
+    margin-left: 200px; /* Nova margem igual à largura expandida */
+    width: calc(100% - 200px); /* Ajusta a largura do conteúdo */
+}
+
+/* Garante que o texto da sidebar esteja visível apenas quando expandida */
+body.sidebar-active .sidebar-text {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.5em;
+    margin-left: 15px; /* Espaço entre ícone e texto */
+}
+
+/* Garante que os itens da sidebar se alinhem à esquerda ao expandir */
+body.sidebar-active .sidebar-item a {
+    justify-content: flex-start;
+    padding: 15px 20px;
 }
 
 .sidebar-item {
@@ -182,10 +218,11 @@ body.dark-mode .header {
 /* --- 3. Área de Conteúdo Principal --- */
 
 .main-content {
-    margin-left: 80px; 
-    padding-top: 60px; 
+    margin-left: 80px; /* Ajusta a margem esquerda */
+    padding-top: 75px; 
     width: calc(100% - 80px); 
     box-sizing: border-box;
+    transition: margin-left 0.3s, width 0.3s; 
 }
 
 /* ######################################################## */
@@ -242,6 +279,14 @@ body.dark-mode .about-content {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     /* Remove ou define a borda para zero no Modo Escuro */
     border: none; /* Garante que a borda não apareça no modo escuro */
+}
+
+.about-soma-logo {
+    height: 1.4em; /* Altura relativa ao tamanho da fonte do H1 */
+    width: auto;
+    vertical-align: middle; /* Alinha a logo com o texto "Sobre o" */
+    max-width: 100px; /* Garante que não seja muito grande */
+    transition: fill 0.3s ease, stroke 0.3s ease; /* Para cores de SVG */
 }
 
 /* --- Estilos Específicos da Página Sobre Nós --- */

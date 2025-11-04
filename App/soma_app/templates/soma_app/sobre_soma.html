@@ -1,12 +1,24 @@
 {% extends "soma_app/base.html" %}
 
+{% load static %}
+
 {% block title %}SOMA - Sobre o Projeto{% endblock %}
 
 {% block sobre_soma_active %}active{% endblock %}
 
 {% block content %}
     <div class="about-content">
-        <h1>Sobre o SOMA</h1>
+        <h1>
+            Sobre o 
+            <img 
+                src="{% static 'img/logo-negative.svg' %}" 
+                alt="SOMA Logo" 
+                class="about-soma-logo"
+                
+                data-logo-dark="{% static 'img/logo-negative.svg' %}"
+                data-logo-light="{% static 'img/logo-positive.svg' %}"
+            >
+        </h1>
         
         <div class="project-image">
             [Espaço para Imagem Ilustrativa do Projeto]
