@@ -76,6 +76,15 @@ body.dark-mode .header {
     color: var(--color-text-primary); 
 }
 
+.header-logo {
+    height: 40px; /* Altura fixa para a logo no header */
+    width: auto; /* Mantém a proporção da imagem */
+    vertical-align: middle; /* Alinha a logo verticalmente no cabeçalho */
+    max-width: 150px; /* Garante que a logo não seja grande demais em telas menores */
+    /* transition: filter 0.3s ease; -- Remova ou ajuste esta transição, pois vamos usar 'fill' ou 'stroke' */
+    transition: fill 0.3s ease, stroke 0.3s ease; /* Transição para cores de SVG */
+}
+
 /* --- Estilos do Toggle de Tema Escuro --- */
 #theme-toggle {
     position: absolute;
@@ -90,7 +99,7 @@ body.dark-mode .header {
 
 /* --- Estilos do Toggle de Sidebar (Escondido por padrão) --- */
 #sidebar-toggle {
-    display: none; /* Escondido em telas grandes */
+    display: block; /* Escondido em telas grandes */
     position: absolute;
     left: 20px;
     top: 50%;
@@ -128,7 +137,7 @@ body.dark-mode .header {
     position: fixed;
     top: 60px;
     left: 0;
-    width: 80px;
+    width: 60px; 
     height: calc(100vh - 60px); 
     background-color: var(--color-header-footer); 
     padding-top: 20px;
@@ -136,7 +145,34 @@ body.dark-mode .header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, width 0.3s, left 0.3s; 
+}
+
+/* 🚨 NOVO: Estilo da Sidebar Ativa/Expandida (Desktop e Global) 🚨 */
+/* Quando 'sidebar-active' está presente, ela se expande */
+body.sidebar-active .sidebar {
+    width: 200px; /* Largura Expandida */
+}
+
+/* Quando 'sidebar-active' está presente, o conteúdo se move */
+body.sidebar-active .main-content {
+    margin-left: 200px; /* Nova margem igual à largura expandida */
+    width: calc(100% - 200px); /* Ajusta a largura do conteúdo */
+}
+
+/* Garante que o texto da sidebar esteja visível apenas quando expandida */
+body.sidebar-active .sidebar-text {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.5em;
+    margin-left: 15px; /* Espaço entre ícone e texto */
+}
+
+/* Garante que os itens da sidebar se alinhem à esquerda ao expandir */
+body.sidebar-active .sidebar-item a {
+    justify-content: flex-start;
+    padding: 15px 20px;
 }
 
 .sidebar-item {
@@ -182,10 +218,11 @@ body.dark-mode .header {
 /* --- 3. Área de Conteúdo Principal --- */
 
 .main-content {
-    margin-left: 80px; 
-    padding-top: 60px; 
+    margin-left: 80px; /* Ajusta a margem esquerda */
+    padding-top: 75px; 
     width: calc(100% - 80px); 
     box-sizing: border-box;
+    transition: margin-left 0.3s, width 0.3s; 
 }
 
 /* ######################################################## */
@@ -224,26 +261,50 @@ body.dark-mode .chart-area {
     margin: 40px auto;
     text-align: center;
     padding: 20px;
-    background-color: white; /* Tema Claro */
+    background-color: white; 
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s, border 0.3s; /* Adicionado 'border' à transição */
+}
+
+/* 1. Borda Azul para o MODO CLARO (Padrão) */
+.about-content:not(.dark-mode) {
+    /* O seletor ':not(.dark-mode)' garante que esta regra só se aplique no modo claro */
+    border: 3px solid var(--color-accent-primary-light); /* Borda sólida com a cor azul de destaque */
 }
 
 /* Dark Mode: Fundo do about-content (Cartão) */
 body.dark-mode .about-content {
     background-color: var(--color-header-footer); /* #1A1A2E */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    /* Remove ou define a borda para zero no Modo Escuro */
+    border: none; /* Garante que a borda não apareça no modo escuro */
+}
+
+.about-soma-logo {
+    height: 1.4em; /* Altura relativa ao tamanho da fonte do H1 */
+    width: auto;
+    vertical-align: middle; /* Alinha a logo com o texto "Sobre o" */
+    max-width: 100px; /* Garante que não seja muito grande */
+    transition: fill 0.3s ease, stroke 0.3s ease; /* Para cores de SVG */
 }
 
 /* --- Estilos Específicos da Página Sobre Nós --- */
+
+.team-intro-text {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-align: left;
+}
 
 .team-photo {
     width: 100%;
     height: 250px;
     background-color: var(--color-gradient-low-light); 
     margin: 20px 0 40px 0;
-    border-radius: 8px;
+    border-radius: 8px; 
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,6 +312,13 @@ body.dark-mode .about-content {
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
 }
+
+.team-photo img {
+    width: 100%; /* Ocupa 100% da largura do contêiner */
+    height: 100%; /* Ocupa 100% da altura do contêiner */
+    object-fit: cover; /* Faz a imagem preencher o contêiner, mantendo as proporções e cortando o excesso */
+}
+
 body.dark-mode .team-photo {
     color: var(--color-text-primary-dark);
     background-color: var(--color-gradient-low-dark); /* #3C3C58 */
@@ -262,15 +330,59 @@ body.dark-mode .team-photo {
     gap: 20px;
     margin-top: 40px;
 }
+
 .member-card {
     flex: 1;
     text-align: center;
+    padding: 15px; /* Adiciona padding interno para o conteúdo não tocar a borda */
+    
+    /* 1. Borda Rosa Arredondada (Tema Claro e Padrão) */
+    border: 2px solid var(--color-accent-primary); /* Azul claro/médio (#4A90E2)  no tema claro */
+    border-radius: 10px; /* Arredondamento da borda do card */
+    
+    /* 2. Sombra Suave (Padrão para o Tema Claro) */
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3); /* Sombra azul suave  */
+    
+    transition: all 0.3s ease-in-out; /* Transição para o efeito hover e modo escuro */
+    
+    /* Garante que o fundo do card seja branco no tema claro para contraste */
+    background-color: white; 
 }
+
+/* 3. Efeito Neon Rosa e Borda no TEMA ESCURO (Dark Mode) */
+body.dark-mode .member-card {
+    /* Define a cor de fundo do card no modo escuro */
+    background-color: var(--color-background-dark); /* Azul escuro (#1A1A2E)  */
+    
+    /* Borda Rosa Arredondada - Modo Escuro */
+    border: 2px solid var(--color-accent-primary-dark); /* Rosa Vibrante (#FF4B91)  */
+    
+    /* Sombra Neon Rosa */
+    box-shadow: 0 0 15px var(--color-accent-primary-dark), 
+                0 0 5px var(--color-accent-primary-dark);
+}
+
+
+/* 4. Efeito HOVER (opcional, mas recomendado para realçar o neon) */
+.member-card:hover {
+    transform: translateY(-5px); /* Move levemente para cima */
+    /* Aumenta a intensidade da sombra no hover no Tema Claro */
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4); 
+}
+
+body.dark-mode .member-card:hover {
+    transform: translateY(-5px);
+    /* Aumenta a intensidade da sombra neon no hover no Tema Escuro */
+    box-shadow: 0 0 25px var(--color-accent-primary-dark),
+                0 0 10px var(--color-accent-primary-dark);
+}
+
 .member-card img {
-    width: 150px;
-    height: 200px;
+    width: 150px;       
+    height: 150px;      
+    object-fit: cover;  
+    border-radius: 15px; 
     background-color: var(--color-accent-secondary-light);
-    border-radius: 4px;
     margin-bottom: 10px;
     display: block;
     margin-left: auto;
@@ -279,6 +391,45 @@ body.dark-mode .team-photo {
 }
 body.dark-mode .member-card img {
     background-color: var(--color-accent-secondary-dark); /* #4DD0E1 */
+}
+
+/* 2. Simplificação do Card do Membro */
+.member-card p {
+    margin: 5px 0 0 0; /* Ajusta a margem para compactar as informações abaixo da foto */
+    line-height: 1.3;
+}
+
+.member-name {
+    display: block; /* Garante que o nome fique em uma linha própria */
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.member-role {
+    display: block; /* Garante que o cargo fique em uma linha própria */
+    font-size: 0.9em;
+    color: var(--color-text-primary); /* Cor do texto padrão */
+    opacity: 0.8;
+}
+
+/* 3. Estilo Específico para o Link do GitHub (Cor Rosa) */
+.github-link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    
+    /* Tema Claro: Usa a cor de destaque primária (Azul) */
+    color: var(--color-accent-primary); 
+    transition: color 0.3s;
+}
+
+/* Tema Escuro: Link do GitHub com a cor Rosa Vibrante */
+body.dark-mode .github-link {
+    color: var(--color-accent-primary-dark); /* Rosa Vibrante (#FF4B91) */
+}
+
+.github-link:hover {
+    text-decoration: underline;
 }
 
 /* --- Estilos Específicos da Página Sobre o SOMA --- */
@@ -397,5 +548,36 @@ body.dark-mode .project-image {
     .header {
         /* Garante que o padding acomode ambos os toggles */
         padding: 15px 0px; 
+    }
+}
+
+/* --- Estilos Específicos da Página Sobre Nós --- */
+
+/* ... Código existente (team-photo, members-container, member-card) ... */
+
+/* Estilo para a seção de detalhes (texto da descrição) */
+.member-details {
+    text-align: left; /* Alinha o texto da descrição à esquerda, melhora a leitura */
+    margin-top: 15px;
+    padding: 0 10px; /* Adiciona um pequeno padding nas laterais */
+    font-size: 0.9em; /* Reduz um pouco a fonte para caber mais texto */
+    line-height: 1.4;
+}
+
+/* Estilo para o título de cada detalhe (Funções, Foco, Interesse) */
+.detail-title {
+    font-weight: bold;
+    color: var(--color-accent-primary); /* Usa a cor de destaque primária para os títulos */
+    display: inline-block; /* Garante que o span se comporte bem com o texto ao lado */
+    margin-bottom: 5px;
+}
+
+/* Garante que, em telas pequenas, o texto da card mantenha o alinhamento à esquerda */
+@media (max-width: 768px) {
+    /* ... Código existente para telas menores ... */
+    
+    .member-details {
+        text-align: left; /* Mantém o alinhamento de leitura no mobile */
+        padding: 0; /* Remove o padding extra no mobile */
     }
 }
