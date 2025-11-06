@@ -50,13 +50,18 @@ Durante a primeira fase do projeto (2º semestre de 2025), os principais objetiv
 
 ### 🗓️ Cronograma
 
-| Data | Tema | Conteúdo |
-| :--- | :--- | :--- |
-| 07/08 | Introdução à Resolução de Problemas Complexos | ABP, análise de stakeholders, cases reais |
-| 14/08 | Design Thinking - Imersão Profunda no Problema | - Introdução aos princípios do Design Thinking. - Técnicas de pesquisa e imersão: entrevistas com usuários, jornada do usuário, mapa de empatia. |
-| 21/08 | Design Thinking – Síntese e Ideação | - Análise e síntese dos dados da pesquisa. - Geração de ideias (brainstorming) e priorização. |
-| 28/08 | Design Thinking – Síntese e Ideação | - Construção de protótipos de baixa fidelidade (wireframes, storyboards) |
-| 03/09 | Lean Inception - Alinhamento e Visão do Produto | - Introdução à metodologia Lean Inception.Product Vision Board, definição do escopo |
+| **Etapa**                              | **Período**                      |
+|----------------------------------------|----------------------------------|
+| Planejamento inicial e brainstorm      | 01/08 – 15/08                    |
+| Concepção e pesquisa                   | 16/08 – 10/09                    |
+| Definição de escopo                    | 11/09 – 25/09                    |
+| Prototipagem e escolha de design       | 26/09 – 15/10                    |
+| Desenvolvimento técnico                | 16/10 – 10/11                    |
+| Tratamento e validação de dados        | 11/11 – 20/11                    |
+| Testes e ajustes finais                | 21/11 – 05/12                    |
+| Documentação total e entregas          | 06/12 – 15/12                    |
+| Estudos complementares                 | 01/08 – 15/12 (*paralelo ao desenvolvimento*) |
+
 
 ### 📈 Status do Projeto
 
