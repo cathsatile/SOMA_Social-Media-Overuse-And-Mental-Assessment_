@@ -1,0 +1,313 @@
+/* --- Estilos Específicos da Página Sobre Nós/SOMA (Cartões de Conteúdo) --- */
+
+/* 🚨 NOVO: Estilo para o Badge de Título (Substitui o H1) */
+.soma-title-badge {
+    display: inline-block;
+    padding: 10px 25px; /* Padding interno */
+    margin-bottom: 10px;
+    border-radius: 50px; /* Bordas bem arredondadas (Pill shape) */
+    font-size: 1em; /* Tamanho da fonte */
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+    /* Tema Claro (Padrão) - Gradiente Original */
+    background: linear-gradient(
+        125deg, /* Mudando para 90deg para um efeito linear horizontal */
+        var(--aux-color-variant-mid-light) 5%,    /* #4A90E2 */
+        var(--color-accent-secondary-light) 95%   /* #9B59B6 */
+    );
+    color: white; /* Texto branco sobre o gradiente escuro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Dark Mode para o Badge de Título */
+body.dark-mode .soma-title-badge {
+    background: linear-gradient(
+        125deg,
+        var(--aux-color-variant-dark) 5%,    /* #FF4B91 */
+        var(--color-accent-primary-dark) 95%        /* #7B68EE */
+    );
+    color: var(--color-text-primary); /* Texto escuro/de contraste sobre o gradiente claro */
+}
+
+/* 🚨 NOVO: Estilo para o H1 de Destaque (Hero Headline) 🚨 */
+.hero-headline {
+    /* Layout */
+    display: block; 
+    margin: 0 auto 20px auto; 
+    width: auto;
+    max-width: 90%;
+    
+    /* Tipografia e Cor */
+    font-size: 3.0em; /* 🚨 AUMENTADO O TAMANHO DA FONTE */
+    letter-spacing: -0.05em;
+    line-height: 1.0; 
+    font-weight: 900; /* Extra Bold/Black */
+    text-align: center;
+    
+    /* 🚨 APLICANDO GRADIENTE NA FONTE (Tema Claro) */
+    background: linear-gradient(
+        125deg,
+        var(--aux-color-variant-mid-light) 35%,
+        var(--color-accent-secondary-light) 50%,
+        var(--color-accent-secondary-light) 55%,
+        var(--aux-color-variant-light) 75%   
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+        
+    /* Resetando o background/shadow que eram do contêiner */
+    border-radius: 0;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Dark Mode para o H1 de Destaque */
+body.dark-mode .hero-headline {
+    /* 🚨 APLICANDO GRADIENTE NA FONTE (Tema Escuro) */
+    background: linear-gradient(
+        125deg,
+        var(--aux-color-variant-dark) 35%,
+        var(--color-accent-primary-dark) 50%,
+        var(--color-accent-primary-dark) 55%,
+        var(--color-aux-variant-1) 85%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Sombra mais forte para o modo escuro */
+    box-shadow: none;
+}
+
+/* Estilos da Logo no Título (Removido, não é mais necessário aqui) */
+.about-soma-logo {
+    display: none; /* A tag logo original foi substituída pelo badge, escondendo-a */
+}
+
+/* 🚨 CORRIGIDO: Estilos do Content Soma (Contêiner) 🚨 */
+.content-soma {
+    /* Layout */
+    width: auto; 
+    height: 1000px; /* Mantido em 1000px conforme sua solicitação */
+    box-sizing: border-box;
+    padding: 30px; 
+    border-radius: 12px; /* Bordas Arredondadas */
+    text-align: center;
+    overflow: hidden; 
+    
+    /* Transição de cor */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s;
+    
+    /* Fundo suave para o contêiner, já que o badge usa o gradiente principal */
+    background-color: var(--color-background); 
+    
+    /* O texto principal deve usar a cor padrão do body */
+    color: var(--color-text-primary); 
+}
+
+/* Configuração de cores do texto DENTRO do content-soma */
+.content-soma h1, .content-soma p, .content-soma strong {
+    /* Voltando ao padrão do body para bom contraste sobre o fundo suave/primário */
+    color: inherit; 
+}
+
+/* Dark Mode para o Content Soma (Fundo) */
+body.dark-mode .content-soma {
+    background-color: var(--color-background); 
+}
+
+/* Ajustes de contraste para os CARDS de Membro DENTRO do Contêiner Suave */
+.content-soma .member-card {
+    /* Mantido o fundo opaco para o cartão se destacar sobre o fundo suave */
+    background-color: white; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .content-soma .member-card {
+    background-color: var(--color-background-dark); 
+    border: 2px solid var(--color-accent-primary-dark);
+}
+
+/* --- Estilos Específicos da Página Sobre Nós --- */
+
+.team-intro-text {
+    font-size: 1.1em;
+    max-width: 40%;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: center; 
+    text-shadow: none; /* Remove a sombra desnecessária no texto principal */
+}
+
+.team-photo {
+    width: 100%;
+    height: 250px;
+    background-color: var(--color-gradient-low-light); 
+    margin: 20px 0 40px 0;
+    border-radius: 8px; 
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-primary);
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.team-photo img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+body.dark-mode .team-photo {
+    color: var(--color-text-primary-dark);
+    background-color: var(--color-gradient-low-dark); 
+}
+
+.members-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.member-card {
+    flex: 1;
+    text-align: center;
+    padding: 15px; 
+    
+    border: 2px solid var(--color-accent-primary); 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3); 
+    transition: all 0.3s ease-in-out; 
+    background-color: white; 
+}
+
+/* Dark Mode Card Styles */
+body.dark-mode .member-card {
+    background-color: var(--color-background-dark); 
+    border: 2px solid var(--color-accent-primary-dark); 
+    box-shadow: 0 0 15px var(--color-accent-primary-dark), 
+                0 0 5px var(--color-accent-primary-dark);
+}
+
+/* Hover Effects */
+.member-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4); 
+}
+
+body.dark-mode .member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--color-accent-primary-dark),
+                0 0 10px var(--color-accent-primary-dark);
+}
+
+.member-card img {
+    width: 150px;       
+    height: 150px;      
+    object-fit: cover;  
+    border-radius: 15px; 
+    background-color: var(--color-accent-secondary-light);
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s;
+}
+body.dark-mode .member-card img {
+    background-color: var(--color-accent-secondary-dark); 
+}
+
+/* Member Text Details */
+.member-card p {
+    margin: 5px 0 0 0; 
+    line-height: 1.3;
+}
+.member-name {
+    display: block; 
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+.member-role {
+    display: block; 
+    font-size: 0.9em;
+    color: var(--color-text-primary); 
+    opacity: 0.8;
+}
+.github-link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: var(--color-accent-primary); 
+    transition: color 0.3s;
+}
+body.dark-mode .github-link {
+    color: var(--color-accent-primary-dark); 
+}
+.github-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilos Específicos da Página Sobre o SOMA (Não mais about-content) --- */
+/* Mantendo .project-image, embora não esteja no .content-soma, apenas no about-content original */
+.project-image {
+    width: 100%;
+    height: 300px;
+    background-color: var(--color-accent-primary-light); 
+    margin: 20px 0 40px 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode .project-image {
+    background-color: var(--color-accent-primary-dark); 
+    color: var(--color-background-dark); 
+}
+
+/* Estilos de Detalhes de Membro */
+.member-details {
+    text-align: left; 
+    margin-top: 15px;
+    padding: 0 10px; 
+    font-size: 0.9em; 
+    line-height: 1.4;
+}
+.detail-title {
+    font-weight: bold;
+    color: var(--color-accent-primary); 
+    display: inline-block; 
+    margin-bottom: 5px;
+}
+
+
+/* ########################################## */
+/* --- MEDIA QUERY: TELAS MENORES (<= 768px) --- */
+/* ########################################## */
+@media (max-width: 768px) {
+    /* Ajuste do Content Soma no Mobile */
+    .content-soma {
+        height: auto; 
+        margin: 10px;
+        padding: 15px;
+    }
+
+    /* Estilos Específicos do Cartão em Mobile */
+    .members-container {
+        flex-direction: column; 
+        padding: 10px;
+        gap: 15px; 
+    }
+    
+    .member-details {
+        text-align: left; 
+        padding: 0; 
+    }
+}

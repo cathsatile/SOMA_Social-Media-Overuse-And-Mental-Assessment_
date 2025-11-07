@@ -1,0 +1,306 @@
+/* Paleta de Cores (Adicionar Modo Escuro) */
+:root {
+    /* Cores do Tema Claro (Padrão) */
+    --color-background-light: #F0F4FF; 
+    --color-text-primary-light: #1C2E4A;
+    --color-accent-primary-light: #4A90E2; 
+    --color-accent-secondary-light: #7C3BED;
+    --color-gradient-low-light: #D4E1F4;
+    --aux-color-variant-mid-light: #4A90E2; 
+    --aux-color-variant-light: #0DA2E7;    
+    --aux-color-variant-light-green: #21C45D; 
+
+    /* Cores do Tema Escuro (Novas) */
+    --color-background-dark: #1A1A2E; 
+    --color-text-primary-dark: #EFEFEF;
+    --color-accent-primary-dark: #F31260; 
+    --color-accent-secondary-dark: #0DA2E7; 
+    --color-gradient-low-dark: #3C3C58; 
+    --aux-color-variant-mid-dark: #FF9500; 
+    --aux-color-variant-dark: #7C3BED; 
+    
+    /* Configuração padrão (usa o tema claro por padrão) */
+    --color-background: var(--color-background-light);
+    --color-text-primary: var(--color-text-primary-light);
+    --color-accent-primary: var(--color-accent-primary-light);
+    --color-accent-secondary: var(--color-accent-secondary-light);
+    --color-gradient-low: var(--color-gradient-low-light);
+    --color-header-footer: var(--color-text-primary-light);
+    --color-aux-variant-1: var(--aux-color-variant-mid-light);
+    --color-aux-variant-2: var(--aux-color-variant-light);
+    --color-aux-variant-3: var(--aux-color-variant-light-green);
+}
+
+/* 🚨 Estilos Aplicados quando a classe 'dark-mode' está ativa 🚨 */
+body.dark-mode {
+    --color-background: var(--color-background-dark); 
+    --color-text-primary: var(--color-text-primary-dark);
+    --color-accent-primary: var(--color-accent-primary-dark);
+    --color-accent-secondary: var(--color-accent-secondary-dark);
+    --color-gradient-low: var(--color-gradient-low-dark);
+    --color-header-footer: var(--color-background-dark); 
+    --color-aux-variant-1: var(--aux-color-variant-mid-dark);
+    --color-aux-variant-2: var(--aux-color-variant-dark);
+    --color-aux-variant-3: var(--aux-color-variant-light-green);
+}
+
+/* --- Estilos Globais e Transições --- */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+h1, h2, h3 {
+    color: var(--color-text-primary);
+}
+
+
+/* --- 1. Cabeçalho (Header) e Toggle --- */
+
+.header {
+    background-color: var(--color-header-footer); 
+    color: var(--color-background);
+    
+    padding: 15px 0px; 
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    transition: background-color 0.3s, color 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Garante que o texto no header mude para a cor clara no modo escuro */
+body.dark-mode .header {
+    background-color: var(--color-header-footer);
+    color: var(--color-text-primary); 
+}
+
+.header-logo {
+    height: 40px; 
+    width: auto; 
+    vertical-align: middle; 
+    max-width: 150px; 
+    transition: fill 0.3s ease, stroke 0.3s ease; 
+}
+
+body.dark-mode .header-logo {
+    color: var(--color-text-primary-dark);
+}
+
+/* --- Estilos do Toggle de Tema Escuro --- */
+#theme-toggle {
+    position: absolute;
+    right: 20px; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--color-background);
+    transition: color 0.3s;
+}
+
+/* --- Estilos do Toggle de Sidebar --- */
+#sidebar-toggle {
+    display: block; 
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--color-background); 
+    z-index: 1001; 
+    transition: color 0.3s;
+}
+
+/* Cor do toggle da sidebar no dark mode */
+body.dark-mode #sidebar-toggle {
+    color: var(--color-text-primary-dark);
+}
+
+#sidebar-toggle:hover, body.dark-mode #theme-toggle, #theme-toggle:hover {
+    color: var(--color-accent-primary);
+}
+
+
+/* --- Overlay para Sidebar em Telas Pequenas --- */
+.overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 800; 
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* --- 2. Navegação Lateral (Sidebar) --- */
+
+.sidebar {
+    position: fixed;
+    top: 70px; /* Altura do Header */
+    left: 0;
+    width: 80px; /* Largura padrão minimizada */
+    height: calc(100vh - 70px); 
+    background-color: var(--color-header-footer); 
+    padding-top: 20px;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s, width 0.3s, left 0.3s; 
+}
+
+/* 🚨 Sidebar Ativa/Expandida (Global) 🚨 */
+body.sidebar-active .sidebar {
+    width: 200px; /* Largura Expandida */
+}
+
+/* Garante que o texto da sidebar esteja visível apenas quando expandida */
+body.sidebar-active .sidebar-text {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.5em;
+    margin-left: 15px; 
+}
+
+/* Alinhamento dos itens da sidebar ao expandir */
+body.sidebar-active .sidebar-item a {
+    justify-content: flex-start;
+    padding: 15px 20px;
+}
+
+.sidebar-item {
+    padding: 20px 0;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sidebar-item a {
+    color: var(--color-gradient-low);
+    text-decoration: none;
+    font-size: 1.5em;
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    padding: 0 10px;
+}
+
+.sidebar-item a:hover, .sidebar-item.active a {
+    color: var(--color-accent-primary);
+}
+
+.sidebar-text {
+    display: none; 
+}
+
+.sidebar-item a i {
+    margin-right: 0;
+}
+
+
+/* --- 3. Área de Conteúdo Principal --- */
+
+.main-content {
+    margin-left: 80px; 
+    padding-top: 75px; 
+    width: calc(100% - 80px); 
+    box-sizing: border-box;
+    transition: margin-left 0.3s, width 0.3s; 
+}
+
+/* Conteúdo Principal movido quando a sidebar está ativa (Desktop) */
+body.sidebar-active .main-content {
+    margin-left: 200px; 
+    width: calc(100% - 200px); 
+}
+
+/* ########################################## */
+/* --- MEDIA QUERY: TELAS MENORES (<= 768px) --- */
+/* ########################################## */
+@media (max-width: 768px) {
+    
+    /* LAYOUT PRINCIPAL: Remove margens e permite rolagem vertical */
+    body {
+        font-size: 1.1em; 
+        display: block; 
+    }
+    
+    /* Aumenta as letras dos títulos e subtítulos */
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.3em; }
+
+    /* Main Content (ocupa 100% em mobile) */
+    .main-content {
+        margin-left: 0; 
+        width: 100%;
+        padding-top: 75px; 
+    }
+    
+    /* Garante que o main-content não mude de margem no mobile */
+    body.sidebar-active .main-content {
+        margin-left: 0; 
+        width: 100%; 
+    }
+
+    /* Sidebar Mobile (Slide-out) */
+    .sidebar {
+        left: -200px; /* Esconde */
+        width: 200px; 
+        height: 100%;
+        top: 0;
+        padding-top: 75px; /* Compensa o header */
+    }
+
+    /* Sidebar Ativa (Slide-in) */
+    body.sidebar-active .sidebar {
+        left: 0; 
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    body.sidebar-active .overlay {
+        display: block;
+        opacity: 1; 
+    }
+
+    /* Ajuste de padding/alinhamento da sidebar em mobile */
+    .sidebar-item a {
+        justify-content: flex-start;
+        padding: 15px 20px;
+    }
+
+    .sidebar-item a i {
+        margin-right: 15px; 
+    }
+
+    .sidebar-text {
+        display: inline-block; 
+    }
+    
+    /* Alinhamento do header em telas pequenas */
+    .header {
+        padding: 15px 0px; 
+    }
+}

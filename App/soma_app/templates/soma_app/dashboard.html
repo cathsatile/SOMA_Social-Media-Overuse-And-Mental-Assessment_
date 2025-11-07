@@ -1,5 +1,11 @@
 {% extends "soma_app/base.html" %}
 
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
 {% block title %}SOMA - Dashboard{% endblock %}
 
 {% block dashboard_active %}active{% endblock %}

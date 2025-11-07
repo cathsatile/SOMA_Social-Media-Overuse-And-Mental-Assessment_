@@ -1,0 +1,41 @@
+/* --- Estilos do Dashboard (Gráficos) --- */
+.chart-container {
+    display: flex; 
+    padding: 20px;
+    gap: 20px;
+}
+.chart-area {
+    flex: 1;
+    min-height: 400px;
+    background-color: var(--color-background-light); 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    border-top: 4px solid var(--color-accent-primary);
+    transition: background-color 0.3s, border-top-color 0.3s;
+}
+
+/* Dark Mode: Gráficos */
+body.dark-mode .chart-area {
+    background-color: var(--color-header-footer); 
+    border-top-color: var(--color-accent-primary); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ########################################## */
+/* --- MEDIA QUERY: TELAS MENORES (<= 768px) --- */
+/* ########################################## */
+@media (max-width: 768px) {
+    /* CARDS DE CONTEÚDO (Gráficos): Organiza os elementos na vertical */
+    .chart-container {
+        flex-direction: column; 
+        padding: 10px;
+        gap: 15px; 
+    }
+    
+    .chart-area {
+        flex: auto;
+        min-height: 200px;
+    }
+}
