@@ -1,28 +1,136 @@
 {% extends "soma_app/base.html" %}
 
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-{% endblock %}
-
-{% block title %}SOMA - Dashboard{% endblock %}
-
+{% block title %}SOMA - Início{% endblock %}
 {% block dashboard_active %}active{% endblock %}
 
 {% block content %}
-    <div class="chart-container">
-        <div class="chart-area">
-            <h3>Gráfico 1: Uso Digital por Faixa Etária</h3>
-            <p>Aqui virá o código do gráfico em Plotly/JS.</p>
+
+    <div class="dashboard-header">
+        <h1>{{ section_title }}</h1>
+        <p>{{ section_desc }}</p>
+    </div>
+
+    {% if selected_axis == '0' %}
+    
+    <div class="intro-container">
+        
+        <h2 class="intro-subtitle"><i class="fas fa-database"></i> Fontes de Dados</h2>
+        <div class="dataset-grid">
+            <div class="dataset-card">
+                <div class="ds-icon c1">D1</div>
+                <h3>Dataset 1</h3>
+                <p><strong>Foco:</strong> Vício & Prevalência</p>
+                <p class="ds-desc">Dados demográficos, scores de vício e testes psicológicos (DASS-21).</p>
+            </div>
+            <div class="dataset-card">
+                <div class="ds-icon c2">D2</div>
+                <h3>Dataset 2</h3>
+                <p><strong>Foco:</strong> Plataformas & Sintomas</p>
+                <p class="ds-desc">Análise detalhada por rede social e sintomas físicos/cognitivos.</p>
+            </div>
+            <div class="dataset-card">
+                <div class="ds-icon c3">D3</div>
+                <h3>Dataset 3</h3>
+                <p><strong>Foco:</strong> Sono & Conflitos</p>
+                <p class="ds-desc">Impacto social, qualidade do sono e nível acadêmico.</p>
+            </div>
+            <div class="dataset-card">
+                <div class="ds-icon c4">D4</div>
+                <h3>Dataset 4</h3>
+                <p><strong>Foco:</strong> Dieta Digital</p>
+                <p class="ds-desc">Hábitos de vida (mindfulness, dieta) e mitigação.</p>
+            </div>
         </div>
-        <div class="chart-area">
-            <h3>Gráfico 2: Correlação com Ansiedade/Depressão</h3>
-            <p>Aqui virá o código do gráfico em Plotly/JS.</p>
+
+        <h2 class="intro-subtitle" style="margin-top: 40px;"><i class="fas fa-bullseye"></i> Objetivos por Eixo</h2>
+        <div class="roadmap-container">
+            <div class="roadmap-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Prevalência</h4>
+                    <p>Diagnosticar o nível de vício e identificar grupos de risco.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Saúde Mental</h4>
+                    <p>Correlacionar o vício com Ansiedade, Depressão e Autoestima.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Plataformas</h4>
+                    <p>Identificar redes "vilãs" e impactos no sono/social.</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Dieta Digital</h4>
+                    <p>Analisar se "menos horas" significam "mais felicidade".</p>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Predição</h4>
+                    <p>Modelar fatores de proteção e sugerir intervenções.</p>
+                </div>
+            </div>
         </div>
-        <div class="chart-area">
-            <h3>Gráfico 3: Padrões de Risco</h3>
-            <p>Aqui virá o código do gráfico em Plotly/JS.</p>
+
+    </div>
+
+    {% else %}
+
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <h3>{{ kpi_label_1 }}</h3>
+                <div class="kpi-value">{{ kpi_time }}</div>
+                <p class="kpi-subtitle">{{ kpi_sub_1 }}</p>
+            </div>
+            <div class="kpi-card warning">
+                <h3>{{ kpi_label_2 }}</h3>
+                <div class="kpi-value">{{ kpi_risk }}</div>
+                <p class="kpi-subtitle">{{ kpi_sub_2 }}</p>
+            </div>
+             </div>
+
+        <div class="chart-section-title">
+            <h2>{{ chart_section_title }}</h2>
+        </div>
+
+        <div class="chart-container">
+            {% if graph_pie %} <div class="chart-area half-width">{{ graph_pie|safe }}</div> {% endif %}
+            {% if graph_box %} <div class="chart-area half-width">{{ graph_box|safe }}</div> {% endif %}
+            {% if graph_gender %} <div class="chart-area half-width">{{ graph_gender|safe }}</div> {% endif %}
+            {% if graph_academic %} <div class="chart-area half-width">{{ graph_academic|safe }}</div> {% endif %}
+            {% if graph_platforms_anxiety %} <div class="chart-area half-width">{{ graph_platforms_anxiety|safe }}</div> {% endif %}
+            {% if graph_heatmap_symptoms %} <div class="chart-area half-width">{{ graph_heatmap_symptoms|safe }}</div> {% endif %}
+            {% if graph_social_mood %} <div class="chart-area half-width">{{ graph_social_mood|safe }}</div> {% endif %}
+            {% if graph_conflicts %} <div class="chart-area half-width">{{ graph_conflicts|safe }}</div> {% endif %}
+            {% if graph_sleep_social %} <div class="chart-area half-width">{{ graph_sleep_social|safe }}</div> {% endif %}
+            {% if graph_sleep_addiction %} <div class="chart-area half-width">{{ graph_sleep_addiction|safe }}</div> {% endif %}
+            {% if graph_extra %} <div class="chart-area half-width">{{ graph_extra|safe }}</div> {% endif %}
+        </div>
+    
+    {% endif %}
+
+    <div class="floating-nav-container">
+        <div class="floating-nav">
+            <span class="nav-label">Navegar:</span>
+            <select id="axis-selector" onchange="window.location.href='?eixo='+this.value">
+                <option value="0" {% if selected_axis == '0' %}selected{% endif %}>🏠 Início / Visão Geral</option>
+                <option value="1" {% if selected_axis == '1' %}selected{% endif %}>1. Prevalência e Vício</option>
+                <option value="2" {% if selected_axis == '2' %}selected{% endif %}>2. Saúde Mental</option>
+                <option value="3" {% if selected_axis == '3' %}selected{% endif %}>3. Plataformas</option>
+                <option value="4" {% if selected_axis == '4' %}selected{% endif %}>4. Dieta Digital</option>
+                <option value="5" {% if selected_axis == '5' %}selected{% endif %}>5. Predição</option>
+            </select>
         </div>
     </div>
+    <div style="height: 100px;"></div>
+
 {% endblock %}
