@@ -2,30 +2,610 @@
 
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sobre_soma.css' %}">
+{% endblock %}
+
 {% block title %}SOMA - Sobre o Projeto{% endblock %}
 
 {% block sobre_soma_active %}active{% endblock %}
 
 {% block content %}
-    <div class="about-content">
-        <h1>
-            Sobre o 
-            <img 
-                src="{% static 'img/logo-negative.svg' %}" 
-                alt="SOMA Logo" 
-                class="about-soma-logo"
-                
-                data-logo-dark="{% static 'img/logo-negative.svg' %}"
-                data-logo-light="{% static 'img/logo-positive.svg' %}"
-            >
-        </h1>
-        
-        <div class="project-image">
-            [Espaço para Imagem Ilustrativa do Projeto]
+<div class="about-content">
+
+
+    <div class="header-content">
+        <h1 class="titulo-principal">Relatório de Pesquisa</h1>
+        <h2 class="subtitulo">Prevalência e Impacto do Vício Digital</h2>
+    </div>
+
+    <section class="analysis-section">
+
+        <div class="card-title">
+            <h1>Análise Detalhada por Eixos Temáticos</h1>
         </div>
 
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-    </div>
+        <!-- Introdução -->
+        <div class="analysis-card">
+            <h2 style="font-size: 26px;">Introdução: Vício Digital, Design Manipulador e a Urgência da Mitigação</h2>
+            <p>
+                A digitalização global remodelou profundamente as interações sociais e profissionais, conferindo
+                notáveis avanços, mas também a emergência de desafios psicológicos e comportamentais complexos. O mais
+                proeminente deles é o Uso Problemático de Mídias Digitais (UPMD), frequentemente referido como "vício
+                digital". Este padrão é caracterizado por um uso compulsivo, perda progressiva de controle e
+                persistência no comportamento, apesar das consequências negativas documentadas.
+            </p>
+
+            <p>
+                O Projeto SOMA (Social Media Overuse & Mental Assessment) estabelece sua relevância ao analisar e
+                quantificar a magnitude desse fenômeno. A pesquisa busca validar a definição operacional do vício
+                digital proposta na sua fundamentação teórica (Eixo I) e sublinhar a urgência de compreender suas
+                raízes, seu impacto e as estratégias de mitigação necessárias.
+            </p>
+
+            <h2>O Conceito Estratégico de Dark Pattern</h2>
+
+            <p>
+                Para compreender a rápida consolidação do UPMD, é imperativo examinar o papel do design das plataformas
+                digitais. No cerne do uso problemático encontram-se elementos de interface que exploram vieses da
+                psicologia humana para maximizar o tempo de tela e o engajamento. Essa dinâmica é orquestrada por meio
+                dos Dark Patterns (Padrões Sombrios).
+            </p>
+
+            <p>
+                Um Dark Pattern é definido como uma tática de design de interface de usuário (UI/UX) intencionalmente
+                enganosa ou manipuladora, cuja finalidade é induzir o usuário a tomar decisões que beneficiam os
+                interesses da plataforma em detrimento de sua própria autonomia e bem-estar. Não se trata de uma falha
+                de design, mas sim de uma escolha estratégica que visa capturar e reter a atenção do usuário de forma
+                exploratória.
+            </p>
+
+            <h3>Mecanismos de Manipulação Comuns:</h3>
+
+            <ul>
+                <li>
+                    <strong>Notificações Persistentes e Clickbait:</strong> Criam o Fear of Missing Out (FOMO), mantendo
+                    o usuário em um estado constante de alerta e prontidão cognitiva, dificultando a desconexão.
+                </li>
+                <li>
+                    <strong>Rolagem Infinita (Infinite Scroll):</strong> Remove os marcos físicos e psicológicos de
+                    parada, incentivando o consumo ininterrupto de conteúdo e prolongando o tempo de uso de forma
+                    inconsciente.
+                </li>
+                <li>
+                    <strong>Despedimentos Dificultados:</strong> Estruturas complexas para cancelar assinaturas ou
+                    deletar contas, explorando a inércia do usuário.
+                </li>
+            </ul>
+
+            <p>
+                Ao capitalizar sobre a necessidade humana de conexão social, validação e recompensa imediata, os Dark
+                Patterns funcionam como catalisadores potentes do vício digital. O Projeto SOMA reconhece, portanto, a
+                interconexão entre esses mecanismos de design e as consequências observadas: a exacerbação do impacto
+                psicológico (Eixo II) e o agravamento das consequências comportamentais e físicas (Eixo III). Por fim, o
+                trabalho de Intervenção e Mitigação (Eixo IV) não pode se restringir apenas à terapia individual, mas
+                deve incluir estratégias de autorregulação digital que capacitem o indivíduo a resistir ativamente a
+                interfaces projetadas para promover a dependência.
+            </p>
+
+        </div>
+
+        <!-- Eixo 1 -->
+        <div class="analysis-card">
+            <h2 style="font-size: 26px;">Eixo I – Fundamentação e Prevalência do Vício Digital</h2>
+
+            <p>
+                O presente eixo estabelece as bases conceituais para a análise do uso problemático de tecnologia,
+                investigando suas definições, fatores demográficos e a intrínseca relação com a saúde mental, conforme
+                delineado pela literatura científica.
+            </p>
+
+            <h2>1. Definição e Construtos do Vício Digital</h2>
+
+            <p>
+                O vício digital, ou dependência de tecnologia, é abordado na literatura por meio de construtos
+                complementares, sendo os principais o Uso Problemático de Internet (UPI) e a Nomofobia.
+            </p>
+
+            <h3>Uso Problemático de Internet (UPI)</h3>
+            <p>
+                Este termo define um padrão de uso da Internet que gera prejuízo psicossocial significativo para o
+                indivíduo. A sintomatologia do UPI é análoga à de outras dependências comportamentais, caracterizada
+                pela preocupação excessiva com o online, a necessidade de aumentar o tempo de uso para atingir a
+                satisfação (tolerância) e o surgimento de irritabilidade ou mau humor ao tentar reduzir o uso
+                (abstinência). Tais características resultam, em última instância, no comprometimento de esferas
+                cruciais da vida (Pesquisa 1.3).
+            </p>
+
+            <h3>Nomofobia (No Mobile Phone Phobia)</h3>
+            <p>
+                Representa uma manifestação específica do vício digital, definida como o medo ou ansiedade intensa de
+                ficar incomunicável ou impossibilitado de usar o celular. A pesquisa confirma que a Nomofobia é um
+                preditor significativo da Dependência de Smartphone (Pesquisa 1.1), funcionando como um indicador
+                comportamental direto do grau de apego patológico ao dispositivo móvel.
+            </p>
+
+            <h2>2. Prevalência e Fatores Sociodemográficos</h2>
+
+            <p>
+                A análise da prevalência do vício digital exige a consideração de fatores contextuais e demográficos que
+                modulam o risco:
+            </p>
+
+            <h3>Idade como Fator de Risco</h3>
+            <p>
+                A relação causal entre a Nomofobia e a Dependência de Smartphone é consistentemente mais acentuada em
+                participantes mais jovens (Pesquisa 1.1). Este achado sugere que a faixa etária é um fator crucial de
+                vulnerabilidade ao desenvolvimento e à intensidade do vício digital.
+            </p>
+
+            <h3>Nível Acadêmico</h3>
+            <p>
+                O ambiente universitário é identificado como um contexto relevante. Estudos focados em estudantes
+                revelaram uma prevalência moderada de Nomofobia (Pesquisa 1.2), indicando que as demandas e pressões do
+                meio acadêmico podem ser um fator contribuinte para o uso problemático de dispositivos.
+            </p>
+
+            <h3>Gênero</h3>
+            <p>
+                Pesquisas que controlaram o efeito de outras variáveis sobre a dependência de smartphone não encontraram
+                diferenças estatisticamente significativas relacionadas ao gênero (Pesquisa 1.1), um ponto importante a
+                ser validado na amostra do projeto.
+            </p>
+
+            <h2>3. Comorbidade Psicológica e Impacto na Saúde Mental</h2>
+
+            <p>
+                Uma das principais hipóteses do SOMA é a forte ligação entre o vício digital e o sofrimento psicológico.
+                A literatura corrobora esta hipótese, identificando uma via de mão dupla entre os fenômenos:
+            </p>
+
+            <h3>Comorbidades Psiquiátricas</h3>
+            <p>
+                O UPI tem uma alta taxa de comorbidade com transtornos preexistentes, notavelmente a depressão e o
+                Transtorno do Déficit de Atenção e Hiperatividade (TDAH) (Pesquisa 1.3).
+            </p>
+
+            <h3>Ansiedade, Depressão e Autoestima</h3>
+            <p>
+                Em um nível mais específico, a Nomofobia tem sido associada diretamente ao aumento dos níveis de
+                ansiedade e depressão (Pesquisa 1.2). Adicionalmente, a condição está correlacionada com uma baixa
+                autoestima, sugerindo que o uso problemático pode ser tanto um mecanismo de enfrentamento quanto um
+                fator que exacerba a insegurança pessoal (Pesquisa 1.2).
+            </p>
+
+            <p>
+                As evidências teóricas estabelecidas neste eixo servem como a fundação para a análise empírica, guiando
+                as questões de pesquisa sobre prevalência e correlação do vício digital com o bem-estar psicológico na
+                amostra do projeto SOMA.
+            </p>
+
+        </div>
+
+        <!-- Eixo 2 -->
+        <div class="analysis-card">
+            <h2 style="font-size: 26px;">Eixo II – Impacto na Saúde Mental</h2>
+
+            <p>
+                O uso problemático de mídias digitais e de smartphones transcende o sofrimento psicológico direto,
+                manifestando-se de forma insidiosa através da desregulação de funções biológicas essenciais e de padrões
+                comportamentais disfuncionais. A fundamentação deste Eixo baseia-se na premissa de que a adicção digital
+                estabelece um ciclo vicioso com consequências indiretas significativas.
+            </p>
+
+            <h2>1. O Vínculo Bidirecional entre Mídia Digital e Sono</h2>
+
+            <p>
+                A literatura estabelece uma forte correlação entre a frequência do uso de mídias sociais e a
+                deterioração da qualidade do sono. O comportamento de utilizar telas imediatamente antes de dormir é um
+                hábito de risco clinicamente relevante (Pesquisa 2.3), sendo associado a maiores níveis de sintomas
+                emocionais. Este fenômeno é explicado por dois mecanismos principais:
+            </p>
+
+            <h3>Interferência Fisiológica</h3>
+            <p>
+                A luz azul emitida pelos dispositivos inibe a produção de melatonina, o hormônio regulador do ciclo
+                circadiano, atrasando o início do sono (latência) e diminuindo sua eficiência.
+            </p>
+
+            <h3>Ativação Cognitiva</h3>
+            <p>
+                O conteúdo frequentemente estimulante ou emocionalmente carregado consumido nas plataformas mantém o
+                cérebro em estado de alerta e hipervigilância (Pesquisa 2.2), impedindo o relaxamento necessário para o
+                sono reparador. Assim, o Eixo investiga a correlação do hábito de uso antes de dormir com a qualidade do
+                sono e a exacerbação de estresse/ansiedade.
+            </p>
+
+            <h2>2. A Primazia da Dependência Cognitiva sobre o Tempo de Uso</h2>
+
+            <p>
+                Um achado crítico é a distinção entre a mera quantidade de tempo gasto e a qualidade do uso. Pesquisas
+                apontam que os sintomas de ansiedade e depressão estão mais fortemente associados ao padrão de uso
+                descontrolado e desadaptativo — caracterizado pela dificuldade em limitar o uso e pela necessidade
+                compulsiva de verificação (dependência cognitiva) — do que ao volume total de horas online (Pesquisa
+                2.2).
+            </p>
+
+            <p>
+                Portanto, este Eixo propõe que o desejo de uso e a ruminação mental (<i>think_time_...</i>) atuam como
+                preditores mais robustos de sofrimento psicológico do que o tempo de tela real (<i>actual_time_...</i>),
+                sugerindo que as intervenções devem focar nos processos mentais e não apenas na restrição de tempo.
+            </p>
+
+            <h2>3. Comportamentos de Risco: Uso Passivo e Consequências Sociais</h2>
+
+            <p>
+                O uso problemático engatilha padrões comportamentais que afetam o bem-estar psicossocial:
+            </p>
+
+            <h3>Comparação Social e Depressão</h3>
+            <p>
+                A análise do tipo de uso revela que o uso passivo (observação e consumo de conteúdo sem interação ativa)
+                de plataformas está positivamente relacionado a sintomas de depressão (Pesquisa 2.3). Esse comportamento
+                frequentemente envolve a comparação social, onde a exposição a vidas idealizadas gera sentimentos de
+                inadequação e baixa autoestima, contribuindo para o sofrimento emocional.
+            </p>
+
+            <h3>Conflitos e Nomofobia</h3>
+            <p>
+                Em um nível comportamental mais amplo, a dependência se manifesta como Nomofobia (medo de ficar sem o
+                celular), que além de correlacionar-se diretamente com estresse e ansiedade (Pesquisa 2.1), está
+                associada a consequências funcionais negativas, como a queda no rendimento acadêmico e a potencialização
+                de conflitos interpessoais decorrentes da priorização do digital sobre as interações presenciais.
+            </p>
+
+            <p>
+                Em síntese, o Eixo 2 do projeto SOMA é fundamental para mapear como o uso desadaptativo de mídias e
+                dispositivos se materializa em prejuízos concretos, operando um ciclo vicioso que mina tanto a regulação
+                fisiológica (sono) quanto os padrões comportamentais do indivíduo. A análise reforça a tese de que a
+                dependência cognitiva e comportamentos específicos de risco (como o uso antes de dormir e a comparação
+                social) são preditores mais críticos de sofrimento psicológico do que o tempo de tela isolado,
+                demandando intervenções que priorizem a gestão do padrão de uso e não apenas a sua duração.
+            </p>
+
+        </div>
+
+        <!-- Eixo 3 -->
+        <div class="analysis-card">
+            <h2 style="font-size: 26px;">Eixo III – Consequências Comportamentais e Físicas</h2>
+
+            <p>
+                O uso excessivo e problemático de dispositivos móveis e internet extrapola o domínio da saúde mental,
+                engendrando uma série de consequências comportamentais e físicas que comprometem a qualidade de vida e o
+                funcionamento diário dos indivíduos, especialmente adolescentes.
+            </p>
+
+            <h2>1. Prejuízos à Saúde Física e Musculoesquelética</h2>
+
+            <p>
+                A utilização prolongada e, frequentemente, em posturas inadequadas dos dispositivos móveis, é uma causa
+                direta de problemas físicos. A literatura aponta para o desenvolvimento de distúrbios
+                musculoesqueléticos, como o popularmente conhecido “pescoço de texto”, além de outras dores na coluna e
+                no pescoço (Pesquisa 3.3). Adicionalmente, a exposição contínua às telas está associada a desconfortos
+                visuais, resultando em fadiga ocular e aumento da frequência de dores de cabeça (Pesquisa 3.3).
+            </p>
+
+            <h2>2. Deterioração da Qualidade e Duração do Sono</h2>
+
+            <p>
+                O impacto na qualidade do sono é uma das consequências mais robustamente documentadas. O uso de
+                dispositivos tarde da noite ou imediatamente antes de dormir é um preditor significativo de disfunção do
+                sono (Pesquisa 3.1).
+            </p>
+
+            <h3>Mecanismo Biológico</h3>
+            <p>
+                A luz azul emitida pelos dispositivos inibe a produção de melatonina, o principal hormônio regulador do
+                sono. Essa interferência na fisiologia circadiana leva à desregulação do relógio biológico, resultando
+                em dificuldades para iniciar o sono, menor duração do sono e consequente sonolência diurna e fadiga no
+                dia seguinte (Pesquisa 3.3, 3.1).
+            </p>
+
+            <h3>Evidência Empírica</h3>
+            <p>
+                Um estudo de base populacional demonstrou que adolescentes que usavam o celular após as 21h apresentavam
+                uma probabilidade significativamente maior de reportar má qualidade de sono e uma redução na duração
+                média do sono em comparação com seus pares (Pesquisa 3.2).
+            </p>
+
+            <h2>3. Manifestações Comportamentais e Sociais</h2>
+
+            <p>
+                O caráter desregulado do uso problemático é definido pela perda de controle e pelo prejuízo na
+                funcionalidade diária. O vício em smartphones é conceituado como um uso incontrolável e excessivo que
+                leva à angústia e ao prejuízo nas atividades diárias e sociais (Pesquisa 3.3).
+            </p>
+
+            <h3>Déficit Cognitivo e Impulsividade</h3>
+            <p>
+                O uso excessivo pode estar associado a manifestações comportamentais negativas, incluindo déficits de
+                memória e maior impulsividade (Pesquisa 3.1).
+            </p>
+
+            <h3>Conflitos Interpessoais</h3>
+            <p>
+                A priorização do envolvimento digital em detrimento das obrigações e interações do mundo real é uma
+                fonte de tensão. O uso problemático é um fator que contribui para o surgimento de conflitos sociais,
+                demonstrando o efeito disruptivo do vício nas relações interpessoais (Pesquisa 3.3).
+            </p>
+
+            <p>
+                Em síntese, o Eixo 3 do projeto SOMA é fundamental para mapear como o uso desadaptativo de mídias e
+                dispositivos se materializa em prejuízos concretos, operando um ciclo vicioso que mina tanto a saúde
+                física quanto a estabilidade comportamental do indivíduo.
+            </p>
+
+        </div>
+
+        <!-- Eixo 4 -->
+        <div class="analysis-card">
+            <h2 style="font-size: 26px;">Eixo IV – Intervenção e Mitigação</h2>
+
+            <p>
+                O Eixo 4 do projeto SOMA visa identificar, analisar e validar as estratégias de intervenção mais
+                promissoras para mitigar os impactos negativos do uso problemático de mídia digital, que incluem
+                ansiedade, depressão e baixa autoestima (Pesquisa 4.3). O objetivo é ir além da
+                identificação do problema e fornecer um caminho baseado em evidências para a solução.
+            </p>
+
+            <h3>1. Fundamentos Terapêuticos e Intervenções de Estilo de Vida</h3>
+
+            <p>A literatura clínica aponta para a eficácia de intervenções formais e comportamentais na redução da
+                sintomatologia associada à adicção à internet:</p>
+
+            <p><strong>A. Abordagem Cognitivo-Comportamental (TCC)</strong><br>
+                Os programas baseados na Terapia Cognitivo-Comportamental (TCC) são consistentemente validados por
+                meta-análise como a abordagem mais eficaz para a população adolescente com adicção à internet (Pesquisa 4.1).
+                 A TCC atua diretamente nos padrões de pensamento disfuncionais e nos
+                comportamentos que mantêm o ciclo do vício, resultando na redução dos sintomas de ansiedade e depressão.
+            </p>
+
+            <p><strong>B. O Papel Protetor da Atividade Física</strong><br>
+                Um achado robusto e crucial para o Eixo 4 é o alto desempenho dos tratamentos desportivos (atividade
+                física). Estes se destacaram como as intervenções mais eficazes e promissoras para a redução da adicção
+                à internet, bem como dos sintomas de ansiedade e depressão (Pesquisa 4.1). Essa
+                evidência eleva os hábitos de vida, como a prática regular de exercício, a um fator de mitigação que
+                deve ser priorizado e quantificado na análise de dados do projeto.
+            </p>
+
+            <h3>2. Estratégias Comportamentais de Desconexão (Digital Detox)</h3>
+
+            <p>
+                O Digital Detox (pausas voluntárias e intencionais no uso de dispositivos) é uma estratégia popular que
+                busca a desintoxicação e o restabelecimento do equilíbrio digital.
+            </p>
+
+            <p><strong>A. Eficácia Controvertida e Resultados Variáveis</strong><br>
+                Uma revisão sistemática demonstrou que a eficácia do digital detox é mista e heterogênea (Pesquisa 4.2).
+                 Enquanto algumas intervenções de abstenção reportaram efeitos positivos
+                no bem-estar, outras não encontraram impacto ou, em certos casos, resultaram em consequências negativas,
+                como aumento da sensação de solidão. Isso sugere que a eficácia da desintoxicação depende criticamente
+                de ser uma estratégia bem planejada e não apenas uma interrupção abrupta.
+            </p>
+
+            <p><strong>B. Estruturação da Desconexão</strong><br>
+                Para otimizar a desconexão, guias práticos recomendam a adoção de um “Decálogo da Desconexão Digital”
+                (Pesquisa 4.3). Essa estrutura comportamental visa promover a autorregulação através de
+                passos claros:
+            </p>
+
+            <ul>
+                <li><strong>Definir Limites:</strong> Estabelecer horários e locais livres de tecnologia.</li>
+                <li><strong>Gerenciar Notificações:</strong> Configurar dispositivos para evitar a constante quebra de
+                    foco.</li>
+                <li><strong>Planejar Alternativas:</strong> Substituir o tempo de tela por atividades físicas, sociais
+                    ou projetos.</li>
+            </ul>
+
+            <h3>3. Intervenções Habilitadas por Tecnologia (Wellness Apps)</h3>
+
+            <p>
+                O projeto também deve investigar a eficácia das intervenções mediadas pela própria tecnologia, ou seja,
+                o uso de aplicativos e ferramentas digitais criadas para limitar o uso de outros aplicativos.
+            </p>
+
+            <p><strong>A. Ferramentas de Auto-Regulação</strong><br>
+                As ferramentas incluem aplicativos como Quality Time, Digitox e AntiSocial, que ajudam os usuários a
+                monitorar e impor limites de tempo (Pesquisa 4.3).
+            </p>
+
+            <p><strong>B. Recursos Nativos do Sistema</strong><br>
+                Além dos aplicativos de terceiros, os sistemas operacionais móveis oferecem recursos nativos (ex.: Tempo
+                de Uso no iOS e Bem-Estar Digital no Android) que permitem autorregulação, gerenciamento de notificações
+                e limites diários para aplicativos específicos (Pesquisa 4.3).
+            </p>
+
+            <p><strong>Em síntese</strong>, o Eixo 4 estabelece que a mitigação do vício digital exige uma abordagem
+                dual: intervenções formais como a TCC e estratégias de estilo de vida. A literatura indica que o
+                tratamento desportivo é o fator mais promissor, superando a eficácia variável do Digital Detox e da
+                autorregulação assistida por aplicativos. O Eixo é crucial para validar se as mudanças comportamentais
+                estão associadas à redução dos sintomas psicológicos, fornecendo base para recomendações práticas.
+            </p>
+        </div>
+
+    </section>
+
+
+    <section class="scientific-section">
+
+        <div class="card-title">
+            <h1>Base Científica e Evidências</h1>
+        </div>
+
+        <!-- Datasets -->
+        <div class="block">
+            <h2 class="block-title">📊 Datasets Utilizados</h2>
+
+            <div class="dataset-card">
+                <div class="div-dataset">
+                    <strong>Dataset 01</strong>
+                    <p>
+                        ABIR, M. H. <strong>Internet Addiction with Depression, Anxiety.</strong> Kaggle, 2023.
+                        Disponível em: <a
+                            href="https://www.kaggle.com/datasets/mdismielhossenabir/internet-addiction-with-depression-anxiety"
+                            target="_blank" class="doc-link">link</a>.
+                        Acesso em: 03 dez. 2025.
+                    </p>
+                </div>
+                <a class="meta-btn"
+                    href="https://docs.google.com/spreadsheets/d/1kitxMx7udMi-lgOIlzzFjwc49K1ioXQG/edit?usp=drive_link&ouid=103143286627565247152&rtpof=true&sd=true">Ver
+                    Metadados →</a>
+            </div>
+
+            <div class="dataset-card">
+                <div class="div-dataset">
+                    <strong>Dataset 02</strong>
+                    <p>ANUSHKA, S. <strong>Social Media Usage and Mental Health Dataset.</strong> Kaggle, 2024.
+                        Disponível em: <a
+                            href="https://www.kaggle.com/datasets/anshika1011/social-media-usage-and-mental-health-dataset"
+                            target="_blank" class="doc-link">link</a>.
+                        Acesso em: 03 dez. 2025.</p>
+                </div>
+                <a class="meta-btn"
+                    href="https://drive.google.com/file/d/1PAz8PCH39vqm29o5Ewf1FYSu-sQPeDzB/view?usp=drive_link">Ver
+                    Metadados →</a>
+            </div>
+
+            <div class="dataset-card">
+                <div class="div-dataset">
+                    <strong>Dataset 03</strong>
+                    <p>KCBK52. <strong>Sleep and Social Media Use in Students.</strong> Kaggle, 2024.
+                        Disponível em: <a
+                            href="https://www.kaggle.com/datasets/kcbk52/sleep-and-social-media-use-in-students"
+                            target="_blank" class="doc-link">link</a>.
+                        Acesso em: 03 dez. 2025.</p>
+                </div>
+                <a class="meta-btn"
+                    href="https://drive.google.com/file/d/1z5pDhR4MHEElAGvsaCAhf7YpuouoWjY3/view?usp=drive_link">Ver
+                    Metadados →</a>
+            </div>
+
+            <div class="dataset-card">
+                <div class="div-dataset">
+                    <strong>Dataset 04</strong>
+                    <p>MISHRA, K. <strong>Digital Detox and Well-being Study.</strong> Kaggle, 2023.
+                        Disponível em: <a
+                            href="https://www.kaggle.com/datasets/kushalmishra/digital-detox-and-well-being-study"
+                            target="_blank" class="doc-link">link</a>.
+                        Acesso em: 03 dez. 2025.</p>
+                </div>
+                <a class="meta-btn"
+                    href="https://drive.google.com/file/d/1HhI5jDufOYJgmJd_UQnC04b8xOF6GMyz/view?usp=drive_link">Ver
+                    Metadados →</a>
+            </div>
+        </div>
+
+        <!-- Referências -->
+        <div class="block">
+            <h2 class="block-title">📚 Referências Bibliográficas</h2>
+
+            <div class="references-box">
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>2.1</strong> REIS, M. B. et al. Nomofobia entre discentes de medicina e sua associação com
+                    depressão,
+                    ansiedade, estresse e rendimento acadêmico. <em>Revista Brasileira de Educação Médica</em>,
+                    Brasília, v. 45,
+                    n. 4, 2021. Disponível em:
+                    <a href="https://www.scielo.br/j/rbem/a/NLhRvmVdfm5z9MnfbLvjZFJ/abstract/?format=html&lang=pt"
+                        target="_blank" style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>2.2</strong> SILVA, G. L. et al. O Uso de Internet e Redes Sociais e a Relação com Indícios
+                    de Ansiedade
+                    e Depressão em Estudantes de Medicina. <em>Revista Brasileira de Educação Médica</em>, Brasília, v.
+                    45, n. 2,
+                    2021. Disponível em:
+                    <a href="https://www.scielo.br/j/rbem/a/h64tYKYMwXDmMJ7NGpmRjtN/?format=html&lang=pt"
+                        target="_blank" style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>2.3</strong> MORAES, J. F. L. et al. Mídias Sociais e Sintomas Emocionais de Estudantes de
+                    uma
+                    Universidade Privada. <em>Psicologia: Ciência e Profissão</em>, Brasília, v. 41, 2021. Disponível
+                    em:
+                    <a href="https://www.scielo.br/j/pcp/a/hT55F7GQdLNjyVh5MstHdwH/" target="_blank"
+                        style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>3.1</strong> SCHOLZ, J. et al. Impacto do uso do telefone celular na saúde de crianças e
+                    adolescentes.
+                    <em>Revista Paulista de Pediatria</em>, São Paulo, v. 37, n. 1, 2019. Disponível em:
+                    <a href="https://www.scielo.br/j/rpp/a/CQxCtrvhkrW6GdqgKPVLZ4v/?format=pdf&lang=pt" target="_blank"
+                        style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>3.2</strong> ROCHA, B. R. S. et al. The association of sleep and late-night cell phone use
+                    among
+                    adolescents. <em>Jornal de Pediatria</em>, Rio de Janeiro, v. 97, n. 3, 2021. Disponível em:
+                    <a href="https://www.scielo.br/j/jped/a/kj3hbMM4CydWNSX7Fnv88bB/?lang=pt" target="_blank"
+                        style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>3.3</strong> SILVA, R. C. et al. Uso excessivo de dispositivos móveis e prejuízos a saúde de
+                    adolescentes. In: COSTA, L. S. et al. (org.). <em>Pesquisa Científica em Foco – Volume 3</em>. [S.
+                    l.]: Atena
+                    Editora, 2021. p. 1-13. Disponível em:
+                    <a href="https://atenaeditora.com.br/catalogo/post/uso-excessivo-de-dispositivos-moveis-e-prejuizos-a-saude-de-adolescentes"
+                        target="_blank" style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>4.1</strong> MEJIA-CRUZ, P. P. et al. Eficacia de las intervenciones para reducir ansiedad,
+                    depresión y
+                    adicción a internet en adolescentes adictos a internet: un metaanálisis. <em>Revista Colombiana de
+                        Psicología</em>,
+                    Bogotá, v. 33, n. 2, 2024. Disponível em:
+                    <a href="http://www.scielo.org.co/scielo.php?script=sci_arttext&pid=S0123-91552024000200011"
+                        target="_blank" style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>4.2</strong> CIANCAGLINI, S. et al. Digital detox: An effective solution in the smartphone
+                    era? A
+                    systematic literature review. <em>Journal of Psychosocial Research on Cyberspace</em>, v. 15, n. 3,
+                    2021.
+                    Disponível em:
+                    <a href="https://www.researchgate.net/publication/353280416_Digital_detox_An_effective_solution_in_the_smartphone_era_A_systematic_literature_review"
+                        target="_blank" style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+                <p class="reference" style="color: grey; font-size: 15px; line-height: 1.6;">
+                    <strong>4.3</strong> INSTITUTO FEDERAL DE TELECOMUNICACIONES (México). <em>Guía desintoxicacion
+                        digital</em>.
+                    [S. l.]: IFT, 2020. Disponível em:
+                    <a href="https://www.ift.org.mx/sites/default/files/contenidogeneral/usuarios-y-audiencias/desintoxicaciondigitalguia1.pdf"
+                        target="_blank" style="color:#5fa8ff; font-weight:600; text-decoration:none;">
+                        link da referência
+                    </a>. Acesso em: 02 dez. 2025.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
 {% endblock %}
