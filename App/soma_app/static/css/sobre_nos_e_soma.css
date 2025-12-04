@@ -1,215 +1,395 @@
-/* --- Estilos Específicos da Página Sobre Nós/SOMA (Cartões de Conteúdo) --- */
-
-/* 🚨 NOVO: Estilo para o Badge de Título (Substitui o H1) */
+/* ============================================================
+   SOMA — BADGE DO TÍTULO
+============================================================ */
 .soma-title-badge {
     display: inline-block;
-    padding: 10px 25px; /* Padding interno */
+    padding: 10px 25px;
     margin-bottom: 10px;
-    border-radius: 50px; /* Bordas bem arredondadas (Pill shape) */
-    font-size: 1em; /* Tamanho da fonte */
+    border-radius: 50px;
+    font-size: 1em;
     font-weight: bold;
     letter-spacing: 1px;
-    
-    /* Tema Claro (Padrão) - Gradiente Original */
-    background: linear-gradient(
-        125deg, /* Mudando para 90deg para um efeito linear horizontal */
-        var(--aux-color-variant-mid-light) 5%,    /* #4A90E2 */
-        var(--color-accent-secondary-light) 95%   /* #9B59B6 */
-    );
-    color: white; /* Texto branco sobre o gradiente escuro */
+    background: linear-gradient(125deg,
+            var(--aux-color-variant-mid-light) 5%,
+            var(--color-accent-secondary-light) 95%);
+    color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
 }
 
-/* Dark Mode para o Badge de Título */
 body.dark-mode .soma-title-badge {
-    background: linear-gradient(
-        125deg,
-        var(--aux-color-variant-dark) 5%,    /* #FF4B91 */
-        var(--color-accent-primary-dark) 95%        /* #7B68EE */
-    );
-    color: var(--color-text-primary); /* Texto escuro/de contraste sobre o gradiente claro */
+    background: linear-gradient(125deg,
+            var(--aux-color-variant-dark) 5%,
+            var(--color-accent-primary-dark) 95%);
+    color: var(--color-text-primary);
 }
 
-/* 🚨 NOVO: Estilo para o H1 de Destaque (Hero Headline) 🚨 */
-.hero-headline {
-    /* Layout */
-    display: block; 
-    margin: 0 auto 20px auto; 
-    width: auto;
-    max-width: 90%;
-    
-    /* Tipografia e Cor */
-    font-size: 3.0em; /* 🚨 AUMENTADO O TAMANHO DA FONTE */
-    letter-spacing: -0.05em;
-    line-height: 1.0; 
-    font-weight: 900; /* Extra Bold/Black */
+/* ============================================================
+   TITLES
+============================================================ */
+.title {
     text-align: center;
-    
-    /* 🚨 APLICANDO GRADIENTE NA FONTE (Tema Claro) */
-    background: linear-gradient(
-        125deg,
-        var(--aux-color-variant-mid-light) 35%,
-        var(--color-accent-secondary-light) 50%,
-        var(--color-accent-secondary-light) 55%,
-        var(--aux-color-variant-light) 75%   
-    );
+    font-size: 32px;
+    color: #4c6fff;
+    margin-top: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    max-width: 500px;
+    margin: 0 auto 50px;
+    font-size: 14px;
+}
+
+/* ============================================================
+   TIMELINE — CONTAINER
+============================================================ */
+.timeline-section {
+    margin: 20px 0;
+    padding: 30px;
+    background: linear-gradient(to bottom, #6e8dd67d, #ffffff7b);
+    border-radius: 15px;
+}
+
+body.dark-mode .timeline-section {
+    background: linear-gradient(180deg,
+            var(--color-gradient-low-dark),
+            var(--color-background-dark));
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 0;
+    margin-bottom: 100px;
+}
+
+/* Linha central */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #e5e5e5;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Dark mode – linha */
+body.dark-mode .timeline::before {
+    background: var(--color-accent-primary-dark);
+}
+
+/* Datas */
+.timeline .date {
+    width: 100%;
+    font-size: 14px;
+    color: #777;
+    margin: 5px 0 15px;
+}
+
+body.dark-mode .timeline .date {
+    color: var(--color-text-primary-dark);
+    opacity: 0.7;
+}
+
+/* ============================================================
+   TIMELINE — CARDS
+============================================================ */
+.timeline-item {
+    position: relative;
+    width: 45%;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 50px;
+    transition: background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.timeline-item h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.timeline-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Marcadores */
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border: 4px solid #4c6fff;
+    border-radius: 50%;
+}
+
+.timeline-item.left {
+    right: 5%;
+}
+
+.timeline-item.left::after {
+    right: -62px;
+}
+
+.timeline-item.right {
+    left: 55%;
+}
+
+.timeline-item.right::after {
+    left: -62px;
+}
+
+/* Dark mode – cards */
+body.dark-mode .timeline-item {
+    background: var(--color-background-dark);
+}
+
+body.dark-mode .timeline-item h2,
+body.dark-mode .timeline-item p {
+    color: var(--color-text-primary-dark);
+}
+
+body.dark-mode .timeline-item::after {
+    background: var(--color-background-dark);
+    border-color: var(--color-accent-primary-dark);
+}
+
+/* ============================================================
+   TIMELINE — BADGES DE ETAPAS
+============================================================ */
+.badge {
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 600;
+    max-width: 100px;
+    padding: 4px 12px;
+    margin: 0;
+}
+
+.purple {
+    background: linear-gradient(135deg, #8a5cff, #d47aff);
+}
+
+.pink {
+    background: linear-gradient(135deg, #ff5f9e, #ff93c6);
+}
+
+.green {
+    background: linear-gradient(135deg, #2ecc71, #8affc1);
+}
+
+.orange {
+    background: linear-gradient(135deg, #ffaf40, #ffc980);
+}
+
+.blue {
+    background: linear-gradient(135deg, #4d7cff, #7fb3ff);
+}
+
+/* ============================================================
+   HERO HEADLINE
+============================================================ */
+.hero-headline {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 90%;
+    font-size: 3em;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(125deg,
+            var(--aux-color-variant-mid-light) 35%,
+            var(--color-accent-secondary-light) 50%,
+            var(--aux-color-variant-light) 75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-        
-    /* Resetando o background/shadow que eram do contêiner */
-    border-radius: 0;
-    box-shadow: none;
     transition: all 0.3s ease-in-out;
 }
 
-/* Dark Mode para o H1 de Destaque */
 body.dark-mode .hero-headline {
-    /* 🚨 APLICANDO GRADIENTE NA FONTE (Tema Escuro) */
-    background: linear-gradient(
-        125deg,
-        var(--aux-color-variant-dark) 35%,
-        var(--color-accent-primary-dark) 50%,
-        var(--color-accent-primary-dark) 55%,
-        var(--color-aux-variant-1) 85%
-    );
+    background: linear-gradient(125deg,
+            var(--aux-color-variant-dark) 35%,
+            var(--color-accent-primary-dark) 50%,
+            var(--color-aux-variant-1) 85%);
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
-    /* Sombra mais forte para o modo escuro */
-    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+
 }
 
-/* Estilos da Logo no Título (Removido, não é mais necessário aqui) */
-.about-soma-logo {
-    display: none; /* A tag logo original foi substituída pelo badge, escondendo-a */
-}
-
-/* 🚨 CORRIGIDO: Estilos do Content Soma (Contêiner) 🚨 */
+/* ============================================================
+   CONTENT SOMA
+============================================================ */
 .content-soma {
-    /* Layout */
-    width: auto; 
-    height: 1000px; /* Mantido em 1000px conforme sua solicitação */
+    width: auto;
     box-sizing: border-box;
-    padding: 30px; 
-    border-radius: 12px; /* Bordas Arredondadas */
+    padding: 30px;
+    border-radius: 12px;
     text-align: center;
-    overflow: hidden; 
-    
-    /* Transição de cor */
+    background: linear-gradient(to bottom, #ffffff, #a46ed6);
+    color: var(--color-text-primary);
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s;
-    
-    /* Fundo suave para o contêiner, já que o badge usa o gradiente principal */
-    background-color: var(--color-background); 
-    
-    /* O texto principal deve usar a cor padrão do body */
-    color: var(--color-text-primary); 
 }
 
-/* Configuração de cores do texto DENTRO do content-soma */
-.content-soma h1, .content-soma p, .content-soma strong {
-    /* Voltando ao padrão do body para bom contraste sobre o fundo suave/primário */
-    color: inherit; 
-}
-
-/* Dark Mode para o Content Soma (Fundo) */
 body.dark-mode .content-soma {
-    background-color: var(--color-background); 
+    background: #111122;
 }
 
-/* Ajustes de contraste para os CARDS de Membro DENTRO do Contêiner Suave */
+/* Cards dentro do content-soma */
 .content-soma .member-card {
-    /* Mantido o fundo opaco para o cartão se destacar sobre o fundo suave */
-    background-color: white; 
+    background: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .content-soma .member-card {
-    background-color: var(--color-background-dark); 
+    background: #292B44;
     border: 2px solid var(--color-accent-primary-dark);
 }
 
-/* --- Estilos Específicos da Página Sobre Nós --- */
-
+/* ============================================================
+   TEAM INTRO
+============================================================ */
 .team-intro-text {
     font-size: 1.1em;
     max-width: 40%;
     margin: 0 auto;
     line-height: 1.6;
-    text-align: center; 
-    text-shadow: none; /* Remove a sombra desnecessária no texto principal */
+    text-align: center;
 }
 
-.team-photo {
-    width: 100%;
-    height: 250px;
-    background-color: var(--color-gradient-low-light); 
-    margin: 20px 0 40px 0;
-    border-radius: 8px; 
-    overflow: hidden; 
+/* ============================================================
+   DOCS SECTION
+============================================================ */
+.docs-section {
+    padding: 40px 5%;
+    background: linear-gradient(to top, #6e8dd67d, #ffffff7b);
+    min-height: 100vh;
+    border-radius: 15px;
+}
+
+.docs-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #8a5cff, #4c9fff, #ff3ea5);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 40px;
+}
+
+.group-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--color-text-primary);
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.team-photo img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
 }
 
-body.dark-mode .team-photo {
-    color: var(--color-text-primary-dark);
-    background-color: var(--color-gradient-low-dark); 
+.doc-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+.doc-card h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.doc-link {
+    font-size: 14px;
+    color: #4d7cff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.doc-link:hover {
+    text-decoration: underline;
+}
+
+/* Dark mode – Docs */
+body.dark-mode .docs-section {
+    background: linear-gradient(180deg,
+            var(--color-gradient-low-dark),
+            var(--color-background-dark));
+}
+
+body.dark-mode .doc-card {
+    background: var(--color-background-dark);
+    box-shadow: 0 0 12px rgba(80, 140, 255, 0.3);
+}
+
+body.dark-mode .doc-link {
+    color: rgb(135, 180, 253);
+}
+
+/* ============================================================
+   MEMBERS (Cards de membros)
+============================================================ */
 .members-container {
     display: flex;
     justify-content: space-around;
     gap: 20px;
     margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 .member-card {
     flex: 1;
     text-align: center;
-    padding: 15px; 
-    
-    border: 2px solid var(--color-accent-primary); 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3); 
-    transition: all 0.3s ease-in-out; 
-    background-color: white; 
+    padding: 15px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s ease-in-out;
 }
 
-/* Dark Mode Card Styles */
-body.dark-mode .member-card {
-    background-color: var(--color-background-dark); 
-    border: 2px solid var(--color-accent-primary-dark); 
-    box-shadow: 0 0 15px var(--color-accent-primary-dark), 
-                0 0 5px var(--color-accent-primary-dark);
-}
-
-/* Hover Effects */
 .member-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4); 
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
 }
 
-body.dark-mode .member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px var(--color-accent-primary-dark),
-                0 0 10px var(--color-accent-primary-dark);
+body.dark-mode .member-card {
+    background-color: var(--color-background-dark);
+    box-shadow: 0 0 15px var(--color-accent-primary-dark);
 }
 
 .member-card img {
-    width: 150px;       
-    height: 150px;      
-    object-fit: cover;  
-    border-radius: 15px; 
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
     background-color: var(--color-accent-secondary-light);
     margin-bottom: 10px;
     display: block;
@@ -217,97 +397,67 @@ body.dark-mode .member-card:hover {
     margin-right: auto;
     transition: background-color 0.3s;
 }
+
 body.dark-mode .member-card img {
-    background-color: var(--color-accent-secondary-dark); 
+    background-color: var(--color-accent-secondary-dark);
 }
 
-/* Member Text Details */
-.member-card p {
-    margin: 5px 0 0 0; 
-    line-height: 1.3;
-}
 .member-name {
-    display: block; 
+    display: block;
     font-size: 1.1em;
     margin-top: 5px;
 }
+
 .member-role {
-    display: block; 
+    display: block;
     font-size: 0.9em;
-    color: var(--color-text-primary); 
+    color: var(--color-text-primary);
     opacity: 0.8;
 }
+
 .github-link {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9em;
-    color: var(--color-accent-primary); 
-    transition: color 0.3s;
+    color: var(--color-accent-primary);
 }
-body.dark-mode .github-link {
-    color: var(--color-accent-primary-dark); 
-}
+
 .github-link:hover {
     text-decoration: underline;
 }
 
-/* --- Estilos Específicos da Página Sobre o SOMA (Não mais about-content) --- */
-/* Mantendo .project-image, embora não esteja no .content-soma, apenas no about-content original */
-.project-image {
-    width: 100%;
-    height: 300px;
-    background-color: var(--color-accent-primary-light); 
-    margin: 20px 0 40px 0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    transition: background-color 0.3s, color 0.3s;
-}
-body.dark-mode .project-image {
-    background-color: var(--color-accent-primary-dark); 
-    color: var(--color-background-dark); 
-}
-
-/* Estilos de Detalhes de Membro */
-.member-details {
-    text-align: left; 
-    margin-top: 15px;
-    padding: 0 10px; 
-    font-size: 0.9em; 
-    line-height: 1.4;
-}
-.detail-title {
-    font-weight: bold;
-    color: var(--color-accent-primary); 
-    display: inline-block; 
-    margin-bottom: 5px;
-}
-
-
-/* ########################################## */
-/* --- MEDIA QUERY: TELAS MENORES (<= 768px) --- */
-/* ########################################## */
+/* ============================================================
+   RESPONSIVIDADE (≤ 768px)
+============================================================ */
 @media (max-width: 768px) {
-    /* Ajuste do Content Soma no Mobile */
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        margin-left: 40px;
+    }
+
+    .timeline-item::after {
+        left: -40px !important;
+    }
+
     .content-soma {
-        height: auto; 
         margin: 10px;
         padding: 15px;
     }
 
-    /* Estilos Específicos do Cartão em Mobile */
     .members-container {
-        flex-direction: column; 
+        flex-direction: column;
         padding: 10px;
-        gap: 15px; 
+        gap: 15px;
     }
-    
+
     .member-details {
-        text-align: left; 
-        padding: 0; 
+        padding: 0;
+        text-align: left;
     }
 }
