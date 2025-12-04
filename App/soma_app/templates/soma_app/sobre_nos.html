@@ -11,11 +11,13 @@
 {% block sobre_nos_active %}active{% endblock %}
 
 {% block content %}
-    <div class="content-soma">
-        
+<div class="content-soma">
+
+    <section class="titulo-section">
+
         {# Badge de Título #}
-        <div class="soma-title-badge">Sobre o SOMA</div>
-        
+        <div class="soma-title-badge">Sobre o Nós</div>
+
         {# 🚨 NOVO: Título de Destaque com Gradiente #}
         <h1 class="hero-headline">
             Transformando o tempo de<br>
@@ -23,9 +25,108 @@
         </h1>
 
         <p class="team-intro-text">
-            Analisamos as oportunidades do mundo digital, mas priorizamos a saúde mental. Nossa missão é garantir que o uso da tecnologia não custe a sua paz.
+            Analisamos as oportunidades do mundo digital, mas priorizamos a saúde mental. Nossa missão é garantir que o
+            uso
+            da tecnologia não custe a sua paz.
         </p>
 
+    </section>
+
+    <div class="timeline-section">
+        <h1 class="title">Nossa Trajetória</h1>
+        <p class="subtitle">
+            Uma jornada de dedicação, aprendizado e construção de um futuro digital mais inclusivo
+        </p>
+
+        <section class="timeline">
+
+            <!-- Card 1 -->
+            <div class="timeline-item left">
+                <div class="item-left">
+                    <div class="badge purple">Agosto 2025</div>
+                    <h2>Fundamentação e Definição do Escopo</h2>
+                </div>
+                <p>
+                    Este módulo inicial foca na compreensão profunda do problema (vício digital e seus impactos)
+                    através de pesquisa (imersão), consolidação de conhecimento (síntese) e definição clara dos
+                    objetivos
+                    e limites do projeto. O resultado é a visão de alto nível e um protótipo inicial que valida o
+                    conceito,
+                    estabelecendo a base teórica e prática para o desenvolvimento.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="timeline-item right">
+                <div class="item-left">
+                    <div class="badge pink">Setembro 2025</div>
+                    <h2>Planejamento Ágil e Engenharia de Requisitos</h2>
+                </div>
+                <p>
+                    Dedicado à estruturação formal do projeto. Utilizando metodologias ágeis (como Lean Inception, Scrum
+                    e Kanban),
+                    o foco é desmembrar a visão em requisitos funcionais e não funcionais, criar Backlog detalhado
+                    (Histórias de Usuário)
+                    e definir o Escopo do Módulo de Valor Mínimo (MVP). Esta fase assegura que o desenvolvimento seja
+                    direcionável e gerenciável.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="timeline-item left">
+                <div class="item-left">
+                    <div class="badge green">Outubro 2025</div>
+                    <h2>ETL e Preparação da Base de Dados</h2>
+                </div>
+                <p>
+                    A fase central da manipulação de dados. O foco é a extração dos datasets, a modelagem (garantindo
+                    que
+                    os dados dos 4 datasets se relacionem, se necessário), e o processo de Transformação (T). Isso
+                    inclui
+                    a limpeza de valores nulos, a padronização de categorias (ex: níveis de vício) e a criação dos
+                    scripts
+                    de ETL que resultarão na Base de Dados Limpa e pronta para a aanálise
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="timeline-item right">
+                <div class="item-left">
+                    <div class="badge orange">Novembro 2025</div>
+                    <h2>Análise, Visualização e Construção do Dashboard</h2>
+                </div>
+                <p>
+                    Onde os dados limpos se transformam em insights acionáveis. Este módulo engloba a aAnálise
+                    Expploratória de Dados (AED),
+                    a aaplicação de algoritmos (ex: correlação, testes estatísticos), e a visualização eficaz dos
+                    resultados. O entregável
+                    principal é o Protótipo de Dashboard Interativo, que conta a história dos 4 Eixos de análise de
+                    forma clara e intuitiva.
+                </p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="timeline-item left">
+                <div class="item-left">
+                    <div class="badge blue">Dezembro 2025</div>
+                    <h2>Validação, Conformidade e Entrega Final</h2>
+                </div>
+                <p>
+                    A fase de finalização e garantia de qualidade. O foco é a segurança
+                    (revisão de conformidade com a LGPD/privacidade de dados), a execução de testes no protótipo
+                    funcional e a validação final dos insights e resultados. O projeto culmina na Documentação Completa
+                    e na Apresentação Final, formalizando a entrega do SOMA.
+                </p>
+            </div>
+
+    </div>
+    </section>
+
+    <section class="members">
+        <h1 class="title">Quem Está Por Trás</h1>
+        <p class="subtitle">
+            Conheça as pessoas que tornam o Soma possível e trabalham pela inclusão digital
+        </p>
         <div class="members-container">
             <div class="member-card">
                 <img src="{% static 'img/members/catharina_satile.png' %}" alt="Foto de Catharina Satile">
@@ -54,5 +155,90 @@
                 </p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="docs-section">
+
+        <h1 class="docs-title">Documentação Produzida</h1>
+
+        <div class="docs-group">
+            <h2 class="group-title">
+                <span class="icon">📁</span>
+                Documentos do Projeto
+            </h2>
+
+            <div class="docs-grid">
+
+                <!-- CARD 1 -->
+                <div class="doc-card">
+                    <div class="badges">
+                        <div class="badge red">Finalizado</div>
+                    </div>
+                    <h3>Documento de Visão</h3>
+                    <div style="margin-bottom: 10px;"><a href="https://drive.google.com/file/d/1Qhg7S0k3DZ0RrZTY54cwkktdFfyPJmIA/view?usp=drive_link" target="_blank"
+                            class="doc-link">
+                            📄 Acessar Documento</a></div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="doc-card">
+                    <div class="badges">
+                        <div class="badge purple">Finalizado</div>
+                    </div>
+                    <h3>Jornada de Usuário</h3>
+                    <div style="margin-bottom: 10px;"><a href="https://drive.google.com/file/d/1tSxf-9OiIFezLkLe2n9BiseEMtVLs2l6/view?usp=drive_link" target="_blank"
+                            class="doc-link">
+                            📄 Acessar Documento</a></div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="doc-card">
+                    <div class="badges">
+                        <div class="badge green">Finalizado</div>
+                    </div>
+                    <h3>Mapa de Empatia</h3>
+                    <div style="margin-bottom: 10px;"><a href="https://drive.google.com/file/d/11Aa4Ziw8u2-Gqj4NlH91bfR3FEqOkm1O/view?usp=drive_link" target="_blank"
+                            class="doc-link">
+                            📄 Acessar Documento</a></div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="doc-card">
+                    <div class="badges">
+                        <div class="badge orange">Finalizado</div>
+                    </div>
+                    <h3>Personas</h3>
+                    <div style="margin-bottom: 10px;"><a href="https://docs.google.com/document/d/1ukDVpJKCEKR73-S8P7E-scJL3cD--7VKXrnO6oWHsH0/edit?usp=drive_link" target="_blank"
+                            class="doc-link">
+                            📄 Acessar Documento</a></div>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="doc-card">
+                    <div class="badges">
+                        <div class="badge blue">Finalizado</div>
+                    </div>
+                    <h3>Cronograma SOMA</h3>
+                    <div style="margin-bottom: 10px;"><a href="https://docs.google.com/document/d/1hJv3WxcVFd1vmLPsdG7byz2B-MEk26IWLCei4003vYU/edit?usp=drive_link" target="_blank"
+                            class="doc-link">
+                            📄 Acessar Documento</a></div>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="doc-card">
+                    <div class="badges">
+                        <div class="badge red">Finalizado</div>
+                    </div>
+                    <h3>Documento PRINCE2</h3>
+                    <div style="margin-bottom: 10px;"><a href="https://docs.google.com/document/d/1TiV5w9bXFff2WlEBldI63peIwHjbttNP93CUZ23r8Io/edit?usp=drive_link" target="_blank"
+                            class="doc-link">
+                            📄 Acessar Documento</a></div>
+                </div>
+
+                <!-- COPIE ESTE PADRÃO PARA ADICIONAR MAIS CARDS -->
+            </div>
+        </div>
+    </section>
+
+</div>
 {% endblock %}
