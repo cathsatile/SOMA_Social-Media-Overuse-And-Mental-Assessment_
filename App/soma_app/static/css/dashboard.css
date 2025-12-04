@@ -7,7 +7,7 @@
 
 /* Dark Mode: Gráficos */
 body.dark-mode .chart-area {
-    background-color: var(--color-header-footer); 
+    background-color: var(--color-text-primary); 
     border-top-color: var(--color-accent-primary); 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
@@ -95,17 +95,17 @@ body.dark-mode .chart-area {
 
 .kpi-subtitle {
     font-size: 0.9em;
-    color: #666;
+    color: #bbb;
 }
 
 /* Dark Mode para KPIs */
 body.dark-mode .kpi-card {
-    background-color: var(--color-header-footer);
+    background-color: var(--color-gradient-low);
     color: var(--color-text-primary-dark);
 }
 
 body.dark-mode .kpi-subtitle {
-    color: #bbb;
+    color: #EFEFEF;
 }
 
 /* Ajuste para Gráfico Full Width (Ocupar 100% da linha) */
@@ -207,6 +207,10 @@ body.dark-mode .kpi-subtitle {
 
 #axis-selector:hover {
     background-color: var(--color-background-light);
+}
+
+body.dark-mode #axis-selector:hover {
+    background-color: var(--color-header-footer);
 }
 
 /* Dark Mode para o Menu Flutuante */
@@ -344,7 +348,7 @@ body.dark-mode .floating-nav {
 /* Dark Mode para a Home */
 body.dark-mode .dataset-card, 
 body.dark-mode .roadmap-item {
-    background-color: var(--color-header-footer);
+    background-color: var(--color-gradient-low);
     color: var(--color-text-primary-dark);
 }
 body.dark-mode .ds-desc,
