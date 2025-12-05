@@ -75,3 +75,5 @@ Kanban board: [Kanban Atual: Trello](https://trello.com/invite/b/68f963492169ae7
 Planejamento SCRUM: [Docs](https://docs.google.com/document/d/1EFuL-Sd-7k4OEkpVFjaB8wHsn4nXasq6Ky2bcxldKRc/edit?usp=sharing)
 
 Protótipo: [Link](https://www.figma.com/proto/25HfRfHaQP6aGl3lxVY8iY/Prot%C3%B3tipo-das-P%C3%A1ginas?node-id=0-1&t=otk5BLZK8gw9iHyL-1)
+
+Google Meet: [Link](https://meet.google.com/tzp-asbn-ajz)
