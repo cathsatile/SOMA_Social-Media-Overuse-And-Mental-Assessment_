@@ -77,3 +77,5 @@ Planejamento SCRUM: [Docs](https://docs.google.com/document/d/1EFuL-Sd-7k4OEkpVF
 Protótipo: [Link](https://www.figma.com/proto/25HfRfHaQP6aGl3lxVY8iY/Prot%C3%B3tipo-das-P%C3%A1ginas?node-id=0-1&t=otk5BLZK8gw9iHyL-1)
 
 Google Meet: [Link](https://meet.google.com/tzp-asbn-ajz)
+
+Pitch Deck: [Link](https://www.canva.com/design/DAG6mXkqVrk/mXz1_s6-M886zZ_i_OTBaQ/edit?utm_content=DAG6mXkqVrk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
